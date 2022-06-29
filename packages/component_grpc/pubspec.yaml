@@ -1,0 +1,16 @@
+name: component_grpc
+description: An API of generated gRPC code to interface with backend components
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  grpc: ^3.0.2
+  protobuf: ^2.1.0
+  async: ^2.9.0
+
+dev_dependencies:
+  mocktail: ^0.3.0
+  test: ^1.19.2
