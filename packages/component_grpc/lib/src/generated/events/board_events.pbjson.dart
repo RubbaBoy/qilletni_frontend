@@ -53,3 +53,20 @@ const BoardNameChangeEvent$json = const {
 
 /// Descriptor for `BoardNameChangeEvent`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List boardNameChangeEventDescriptor = $convert.base64Decode('ChRCb2FyZE5hbWVDaGFuZ2VFdmVudBIpCgZtb2RpZnkYASABKAsyES5Cb2FyZE1vZGlmeUV2ZW50UgZtb2RpZnkSEgoEbmFtZRgCIAEoCVIEbmFtZQ==');
+@$core.Deprecated('Use boardsRequestEventDescriptor instead')
+const BoardsRequestEvent$json = const {
+  '1': 'BoardsRequestEvent',
+};
+
+/// Descriptor for `BoardsRequestEvent`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List boardsRequestEventDescriptor = $convert.base64Decode('ChJCb2FyZHNSZXF1ZXN0RXZlbnQ=');
+@$core.Deprecated('Use boardsRequestResponseDescriptor instead')
+const BoardsRequestResponse$json = const {
+  '1': 'BoardsRequestResponse',
+  '2': const [
+    const {'1': 'boards', '3': 1, '4': 3, '5': 11, '6': '.Board', '10': 'boards'},
+  ],
+};
+
+/// Descriptor for `BoardsRequestResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List boardsRequestResponseDescriptor = $convert.base64Decode('ChVCb2FyZHNSZXF1ZXN0UmVzcG9uc2USHgoGYm9hcmRzGAEgAygLMgYuQm9hcmRSBmJvYXJkcw==');

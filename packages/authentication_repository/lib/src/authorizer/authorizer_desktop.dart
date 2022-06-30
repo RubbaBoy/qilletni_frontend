@@ -8,7 +8,7 @@ import 'authorizer.dart';
 class DesktopAuthorizer extends Authorizer {
 
   @override
-  Future<String?> authorizerUser(Uri authorizationUri) {
+  Future<String?> authorizeUser(Uri authorizationUri) {
     return launchUrl(authorizationUri)
         .then((value) {
       if (!value) {

@@ -10,6 +10,7 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'component/component_events.pb.dart' as $0;
+import 'component/request/rpc_mapping.pb.dart' as $2;
 
 class BoardCreateEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoardCreateEvent', createEmptyInstance: create)
@@ -229,5 +230,75 @@ class BoardNameChangeEvent extends $pb.GeneratedMessage {
   $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
+}
+
+class BoardsRequestEvent extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoardsRequestEvent', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  BoardsRequestEvent._() : super();
+  factory BoardsRequestEvent() => create();
+  factory BoardsRequestEvent.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BoardsRequestEvent.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BoardsRequestEvent clone() => BoardsRequestEvent()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BoardsRequestEvent copyWith(void Function(BoardsRequestEvent) updates) => super.copyWith((message) => updates(message as BoardsRequestEvent)) as BoardsRequestEvent; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static BoardsRequestEvent create() => BoardsRequestEvent._();
+  BoardsRequestEvent createEmptyInstance() => create();
+  static $pb.PbList<BoardsRequestEvent> createRepeated() => $pb.PbList<BoardsRequestEvent>();
+  @$core.pragma('dart2js:noInline')
+  static BoardsRequestEvent getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoardsRequestEvent>(create);
+  static BoardsRequestEvent? _defaultInstance;
+}
+
+class BoardsRequestResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoardsRequestResponse', createEmptyInstance: create)
+    ..pc<$2.Board>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boards', $pb.PbFieldType.PM, subBuilder: $2.Board.create)
+    ..hasRequiredFields = false
+  ;
+
+  BoardsRequestResponse._() : super();
+  factory BoardsRequestResponse({
+    $core.Iterable<$2.Board>? boards,
+  }) {
+    final _result = create();
+    if (boards != null) {
+      _result.boards.addAll(boards);
+    }
+    return _result;
+  }
+  factory BoardsRequestResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BoardsRequestResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BoardsRequestResponse clone() => BoardsRequestResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BoardsRequestResponse copyWith(void Function(BoardsRequestResponse) updates) => super.copyWith((message) => updates(message as BoardsRequestResponse)) as BoardsRequestResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static BoardsRequestResponse create() => BoardsRequestResponse._();
+  BoardsRequestResponse createEmptyInstance() => create();
+  static $pb.PbList<BoardsRequestResponse> createRepeated() => $pb.PbList<BoardsRequestResponse>();
+  @$core.pragma('dart2js:noInline')
+  static BoardsRequestResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoardsRequestResponse>(create);
+  static BoardsRequestResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$2.Board> get boards => $_getList(0);
 }
 

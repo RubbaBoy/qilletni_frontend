@@ -19,5 +19,5 @@ abstract class Authorizer {
 
     /// Starts and completed authorization process, returning the user's session
     /// ID.
-    Future<String?> authorizerUser(Uri authorizationUri);
+    Future<String?> authorizeUser(Uri authorizationUri);
 }

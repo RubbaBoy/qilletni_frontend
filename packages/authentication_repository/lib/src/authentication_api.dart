@@ -12,11 +12,18 @@ class AuthenticationApi {
         .then((response) => response.body);
   }
 
-  Future<void> setSessionId(String sessionId) async {
+  /// Gets user information for the given sessionId. If valid, `true` is
+  /// returned and `userInfo` is set. If invalid, `false` is returned.
+  Future<bool> setSessionId(String sessionId) async {
     var meResponse = await http
         .get(Uri.parse('http://192.168.1.17:8000/me?session=$sessionId'));
 
+    if (meResponse.statusCode != 200) {
+      return false;
+    }
+
     userInfo = UserInfo.fromJson(jsonDecode(meResponse.body));
+    return true;
   }
 
   void logOut() {

@@ -22,7 +22,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final List<StreamSubscription> uriListeners = [];
 
   void _onLoginStarted(LoginStarted event, Emitter<LoginState> emit) {
-    authenticationRepository.authorizerUser().then((sessionId) {
+    authenticationRepository.authorizeUser().then((sessionId) {
       if (sessionId == null || sessionId.isEmpty) {
         throw 'sessionId could not be fetched';
       }

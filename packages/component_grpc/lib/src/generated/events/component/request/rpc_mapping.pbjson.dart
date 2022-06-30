@@ -99,6 +99,18 @@ const Album$json = const {
 
 /// Descriptor for `Album`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List albumDescriptor = $convert.base64Decode('CgVBbGJ1bRIOCgJpZBgBIAEoCVICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIfCgthcnR3b3JrX3VybBgDIAEoCVIKYXJ0d29ya1VybA==');
+@$core.Deprecated('Use boardDescriptor instead')
+const Board$json = const {
+  '1': 'Board',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'owner_id', '3': 3, '4': 1, '5': 9, '10': 'ownerId'},
+  ],
+};
+
+/// Descriptor for `Board`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List boardDescriptor = $convert.base64Decode('CgVCb2FyZBIOCgJpZBgBIAEoCVICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIZCghvd25lcl9pZBgDIAEoCVIHb3duZXJJZA==');
 @$core.Deprecated('Use yearRangeDescriptor instead')
 const YearRange$json = const {
   '1': 'YearRange',

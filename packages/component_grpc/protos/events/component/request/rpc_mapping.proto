@@ -31,6 +31,12 @@ message Album {
   string artwork_url = 3;
 }
 
+message Board {
+  string id = 1;
+  string name = 2;
+  string owner_id = 3;
+}
+
 message YearRange {
   int32 start_year = 1;
   int32 end_year = 2;

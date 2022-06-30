@@ -8,7 +8,7 @@ import 'authorizer.dart';
 class AndroidAuthorizer extends Authorizer {
 
   @override
-  Future<String?> authorizerUser(Uri authorizationUri) async {
+  Future<String?> authorizeUser(Uri authorizationUri) async {
     return launchUrl(authorizationUri, mode: LaunchMode.externalApplication)
             .then((value) {
           if (!value) {

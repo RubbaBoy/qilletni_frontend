@@ -26,6 +26,12 @@ class BoardServiceClient extends $grpc.Client {
           '/BoardService/ChangeName',
           ($1.BoardNameChangeEvent value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+  static final _$requestBoards =
+      $grpc.ClientMethod<$1.BoardsRequestEvent, $1.BoardsRequestResponse>(
+          '/BoardService/RequestBoards',
+          ($1.BoardsRequestEvent value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $1.BoardsRequestResponse.fromBuffer(value));
 
   BoardServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -42,6 +48,12 @@ class BoardServiceClient extends $grpc.Client {
       $1.BoardNameChangeEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$changeName, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.BoardsRequestResponse> requestBoards(
+      $1.BoardsRequestEvent request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$requestBoards, request, options: options);
   }
 }
 
@@ -64,6 +76,15 @@ abstract class BoardServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $1.BoardNameChangeEvent.fromBuffer(value),
         ($0.EmptyResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$1.BoardsRequestEvent, $1.BoardsRequestResponse>(
+            'RequestBoards',
+            requestBoards_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $1.BoardsRequestEvent.fromBuffer(value),
+            ($1.BoardsRequestResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.BoardCreateResponse> create_Pre($grpc.ServiceCall call,
@@ -76,8 +97,16 @@ abstract class BoardServiceBase extends $grpc.Service {
     return changeName(call, await request);
   }
 
+  $async.Future<$1.BoardsRequestResponse> requestBoards_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$1.BoardsRequestEvent> request) async {
+    return requestBoards(call, await request);
+  }
+
   $async.Future<$1.BoardCreateResponse> create(
       $grpc.ServiceCall call, $1.BoardCreateEvent request);
   $async.Future<$0.EmptyResponse> changeName(
       $grpc.ServiceCall call, $1.BoardNameChangeEvent request);
+  $async.Future<$1.BoardsRequestResponse> requestBoards(
+      $grpc.ServiceCall call, $1.BoardsRequestEvent request);
 }
