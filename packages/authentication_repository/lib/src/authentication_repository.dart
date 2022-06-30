@@ -11,16 +11,19 @@ class AuthenticationRepository {
   final SessionStore _sessionStore;
   final _controller = StreamController<AuthenticationStatus>();
 
-  AuthenticationRepository._(this._authApi, this._authorizer, this._sessionStore);
+  AuthenticationRepository._(
+      this._authApi, this._authorizer, this._sessionStore);
 
   factory AuthenticationRepository(SessionStore sessionStore) {
-    return AuthenticationRepository._(AuthenticationApi(), Authorizer.create(), sessionStore);
+    return AuthenticationRepository._(
+        AuthenticationApi(), Authorizer.create(), sessionStore);
   }
 
   Future<String> getAuthorizationUrl() => _authApi.requestLoginUrl();
 
   Stream<AuthenticationStatus> get status async* {
-    auth: {
+    auth:
+    {
       if (_sessionStore.hasSessionId()) {
         if (await authUser(_sessionStore.getSessionId())) {
           break auth;
@@ -39,19 +42,20 @@ class AuthenticationRepository {
   /// this sets the value for `getUser()`, stores the result, and returns
   /// `true`. Otherwise, `false` is returned.
   Future<bool> authUser(String sessionId) {
-    return _authApi
-        .setSessionId(sessionId)
-        .then((authed) {
-          if (authed) {
-            _sessionStore.storeSessionId(sessionId);
-            _controller.add(AuthenticationStatus.authenticated);
-          }
+    return _authApi.setSessionId(sessionId).then((authed) {
+      if (authed) {
+        _sessionStore.storeSessionId(sessionId);
+        _controller.add(AuthenticationStatus.authenticated);
+      }
 
-          return authed;
-        });
+      return authed;
+    });
   }
 
   UserInfo? getUser() => _authApi.userInfo;
+
+  String getSessionId() =>
+      _sessionStore.hasSessionId() ? _sessionStore.getSessionId() : '';
 
   Future<String?> authorizeUser() => getAuthorizationUrl()
       .then((url) => _authorizer.authorizeUser(Uri.parse(url)));

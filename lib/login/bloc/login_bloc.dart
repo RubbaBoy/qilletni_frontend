@@ -9,8 +9,9 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc({required this.authenticationRepository})
-      : super(const LoginState()) {
+  LoginBloc({required AuthenticationRepository authenticationRepository})
+      : _authenticationRepository = authenticationRepository,
+        super(const LoginState()) {
     on<LoginStarted>(_onLoginStarted);
 
     on<LoginCancelled>((event, emit) {
@@ -18,16 +19,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
   }
 
-  final AuthenticationRepository authenticationRepository;
-  final List<StreamSubscription> uriListeners = [];
+  final AuthenticationRepository _authenticationRepository;
 
   void _onLoginStarted(LoginStarted event, Emitter<LoginState> emit) {
-    authenticationRepository.authorizeUser().then((sessionId) {
+    _authenticationRepository.authorizeUser().then((sessionId) {
       if (sessionId == null || sessionId.isEmpty) {
         throw 'sessionId could not be fetched';
       }
 
-      return authenticationRepository.authUser(sessionId);
+      // TODO: This doesn't actually emit a state back... not good I think?
+      return _authenticationRepository.authUser(sessionId);
     });
   }
 

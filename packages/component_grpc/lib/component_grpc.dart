@@ -1,5 +1,8 @@
 library component_grpc;
 
+export 'src/call_options_utility.dart';
+export 'src/grpc_repository.dart';
+
 // Generated exports below, do not modify
 
 export 'src/generated/events/board_events.dart';

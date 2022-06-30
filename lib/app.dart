@@ -1,4 +1,5 @@
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:component_grpc/component_grpc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qilletni_frontend/authentication/bloc/authentication_bloc.dart';
@@ -9,14 +10,22 @@ import 'package:uni_links/uni_links.dart';
 import 'package:uni_links_desktop/uni_links_desktop.dart';
 
 class App extends StatelessWidget {
-  const App({super.key, required this.authenticationRepository});
+  const App(
+      {super.key,
+      required this.authenticationRepository,
+      required this.grpcRepository});
 
   final AuthenticationRepository authenticationRepository;
+  final GrpcRepository grpcRepository;
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider.value(
-      value: authenticationRepository,
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<AuthenticationRepository>.value(
+            value: authenticationRepository),
+        RepositoryProvider<GrpcRepository>.value(value: grpcRepository),
+      ],
       child: BlocProvider(
         create: (_) => AuthenticationBloc(authenticationRepository),
         child: AppView(),
@@ -26,7 +35,6 @@ class App extends StatelessWidget {
 }
 
 class AppView extends StatefulWidget {
-
   @override
   _AppViewState createState() => _AppViewState();
 }
