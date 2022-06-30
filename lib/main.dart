@@ -20,8 +20,8 @@ Future<void> main() async {
   final authRepository = AuthenticationRepository(sessionStore);
 
   final channel = ClientChannel(
-    'localhost',
-    port: 9090,
+    const String.fromEnvironment('GRPC_HOST', defaultValue: 'localhost'),
+    port: const int.fromEnvironment('GRPC_PORT', defaultValue: 9090),
     options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
   );
 

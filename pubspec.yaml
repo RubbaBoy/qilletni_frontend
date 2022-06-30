@@ -11,6 +11,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
   copy_with_extension: ^4.0.2
+  formz: ^0.4.1
   authentication_repository:
     path: ./packages/authentication_repository
   component_repository:
