@@ -62,17 +62,22 @@ class SongCreateEvent extends $pb.GeneratedMessage {
 
 class SongChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SongChangeEvent', createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'songId')
     ..hasRequiredFields = false
   ;
 
   SongChangeEvent._() : super();
   factory SongChangeEvent({
-    $core.String? id,
+    $0.ModifyEvent? modify,
+    $core.String? songId,
   }) {
     final _result = create();
-    if (id != null) {
-      _result.id = id;
+    if (modify != null) {
+      _result.modify = modify;
+    }
+    if (songId != null) {
+      _result.songId = songId;
     }
     return _result;
   }
@@ -98,12 +103,23 @@ class SongChangeEvent extends $pb.GeneratedMessage {
   static SongChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $0.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set id($core.String v) { $_setString(0, v); }
+  set modify($0.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearModify() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.ModifyEvent ensureModify() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get songId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set songId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSongId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSongId() => clearField(2);
 }
 

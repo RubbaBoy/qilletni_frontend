@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qilletni_frontend/authentication/authentication.dart';
-import 'package:qilletni_frontend/board_view/board_view.dart';
+import 'package:qilletni_frontend/board_list/board_list.dart';
 
 class HomePage extends StatelessWidget {
   static Route route() {
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const BoardView(),
+            const BoardList(),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,

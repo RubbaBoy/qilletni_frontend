@@ -2,6 +2,7 @@ library component_grpc;
 
 export 'src/call_options_utility.dart';
 export 'src/grpc_repository.dart';
+export 'src/component.dart';
 
 // Generated exports below, do not modify
 

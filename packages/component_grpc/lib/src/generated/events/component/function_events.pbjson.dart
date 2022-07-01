@@ -23,12 +23,12 @@ const FunctionChangeChildrenEvent$json = const {
   '1': 'FunctionChangeChildrenEvent',
   '2': const [
     const {'1': 'modify', '3': 1, '4': 1, '5': 11, '6': '.ModifyEvent', '10': 'modify'},
-    const {'1': 'children', '3': 2, '4': 3, '5': 12, '10': 'children'},
+    const {'1': 'children', '3': 2, '4': 3, '5': 9, '10': 'children'},
   ],
 };
 
 /// Descriptor for `FunctionChangeChildrenEvent`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List functionChangeChildrenEventDescriptor = $convert.base64Decode('ChtGdW5jdGlvbkNoYW5nZUNoaWxkcmVuRXZlbnQSJAoGbW9kaWZ5GAEgASgLMgwuTW9kaWZ5RXZlbnRSBm1vZGlmeRIaCghjaGlsZHJlbhgCIAMoDFIIY2hpbGRyZW4=');
+final $typed_data.Uint8List functionChangeChildrenEventDescriptor = $convert.base64Decode('ChtGdW5jdGlvbkNoYW5nZUNoaWxkcmVuRXZlbnQSJAoGbW9kaWZ5GAEgASgLMgwuTW9kaWZ5RXZlbnRSBm1vZGlmeRIaCghjaGlsZHJlbhgCIAMoCVIIY2hpbGRyZW4=');
 @$core.Deprecated('Use functionNameChangeEventDescriptor instead')
 const FunctionNameChangeEvent$json = const {
   '1': 'FunctionNameChangeEvent',

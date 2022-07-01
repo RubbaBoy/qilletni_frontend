@@ -22,9 +22,10 @@ final $typed_data.Uint8List songCreateEventDescriptor = $convert.base64Decode('C
 const SongChangeEvent$json = const {
   '1': 'SongChangeEvent',
   '2': const [
-    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'modify', '3': 1, '4': 1, '5': 11, '6': '.ModifyEvent', '10': 'modify'},
+    const {'1': 'song_id', '3': 2, '4': 1, '5': 9, '10': 'songId'},
   ],
 };
 
 /// Descriptor for `SongChangeEvent`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List songChangeEventDescriptor = $convert.base64Decode('Cg9Tb25nQ2hhbmdlRXZlbnQSDgoCaWQYASABKAlSAmlk');
+final $typed_data.Uint8List songChangeEventDescriptor = $convert.base64Decode('Cg9Tb25nQ2hhbmdlRXZlbnQSJAoGbW9kaWZ5GAEgASgLMgwuTW9kaWZ5RXZlbnRSBm1vZGlmeRIXCgdzb25nX2lkGAIgASgJUgZzb25nSWQ=');

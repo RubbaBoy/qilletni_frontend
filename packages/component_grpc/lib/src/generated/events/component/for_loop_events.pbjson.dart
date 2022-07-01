@@ -23,12 +23,12 @@ const ForLoopChildrenChangeEvent$json = const {
   '1': 'ForLoopChildrenChangeEvent',
   '2': const [
     const {'1': 'modify', '3': 1, '4': 1, '5': 11, '6': '.ModifyEvent', '10': 'modify'},
-    const {'1': 'children', '3': 2, '4': 3, '5': 12, '10': 'children'},
+    const {'1': 'children', '3': 2, '4': 3, '5': 9, '10': 'children'},
   ],
 };
 
 /// Descriptor for `ForLoopChildrenChangeEvent`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List forLoopChildrenChangeEventDescriptor = $convert.base64Decode('ChpGb3JMb29wQ2hpbGRyZW5DaGFuZ2VFdmVudBIkCgZtb2RpZnkYASABKAsyDC5Nb2RpZnlFdmVudFIGbW9kaWZ5EhoKCGNoaWxkcmVuGAIgAygMUghjaGlsZHJlbg==');
+final $typed_data.Uint8List forLoopChildrenChangeEventDescriptor = $convert.base64Decode('ChpGb3JMb29wQ2hpbGRyZW5DaGFuZ2VFdmVudBIkCgZtb2RpZnkYASABKAsyDC5Nb2RpZnlFdmVudFIGbW9kaWZ5EhoKCGNoaWxkcmVuGAIgAygJUghjaGlsZHJlbg==');
 @$core.Deprecated('Use forLoopIterationsChangeEventDescriptor instead')
 const ForLoopIterationsChangeEvent$json = const {
   '1': 'ForLoopIterationsChangeEvent',
@@ -62,7 +62,7 @@ const ForLoopAbsTimeChangeEvent$json = const {
   '1': 'ForLoopAbsTimeChangeEvent',
   '2': const [
     const {'1': 'modify', '3': 1, '4': 1, '5': 11, '6': '.ModifyEvent', '10': 'modify'},
-    const {'1': 'abs_time', '3': 2, '4': 1, '5': 3, '9': 0, '10': 'absTime', '17': true},
+    const {'1': 'abs_time', '3': 2, '4': 1, '5': 5, '9': 0, '10': 'absTime', '17': true},
   ],
   '8': const [
     const {'1': '_abs_time'},
@@ -70,4 +70,4 @@ const ForLoopAbsTimeChangeEvent$json = const {
 };
 
 /// Descriptor for `ForLoopAbsTimeChangeEvent`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List forLoopAbsTimeChangeEventDescriptor = $convert.base64Decode('ChlGb3JMb29wQWJzVGltZUNoYW5nZUV2ZW50EiQKBm1vZGlmeRgBIAEoCzIMLk1vZGlmeUV2ZW50UgZtb2RpZnkSHgoIYWJzX3RpbWUYAiABKANIAFIHYWJzVGltZYgBAUILCglfYWJzX3RpbWU=');
+final $typed_data.Uint8List forLoopAbsTimeChangeEventDescriptor = $convert.base64Decode('ChlGb3JMb29wQWJzVGltZUNoYW5nZUV2ZW50EiQKBm1vZGlmeRgBIAEoCzIMLk1vZGlmeUV2ZW50UgZtb2RpZnkSHgoIYWJzX3RpbWUYAiABKAVIAFIHYWJzVGltZYgBAUILCglfYWJzX3RpbWU=');

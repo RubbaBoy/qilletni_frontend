@@ -63,14 +63,14 @@ class FunctionCreateEvent extends $pb.GeneratedMessage {
 class FunctionChangeChildrenEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FunctionChangeChildrenEvent', createEmptyInstance: create)
     ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
-    ..p<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'children', $pb.PbFieldType.PY)
+    ..pPS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'children')
     ..hasRequiredFields = false
   ;
 
   FunctionChangeChildrenEvent._() : super();
   factory FunctionChangeChildrenEvent({
     $0.ModifyEvent? modify,
-    $core.Iterable<$core.List<$core.int>>? children,
+    $core.Iterable<$core.String>? children,
   }) {
     final _result = create();
     if (modify != null) {
@@ -114,7 +114,7 @@ class FunctionChangeChildrenEvent extends $pb.GeneratedMessage {
   $0.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.List<$core.List<$core.int>> get children => $_getList(1);
+  $core.List<$core.String> get children => $_getList(1);
 }
 
 class FunctionNameChangeEvent extends $pb.GeneratedMessage {

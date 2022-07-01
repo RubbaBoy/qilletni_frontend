@@ -1,43 +1,43 @@
 import 'package:component_grpc/component_grpc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:qilletni_frontend/board_list/bloc/board_list_bloc.dart';
+import 'package:qilletni_frontend/board_list/board_list.dart';
 import 'package:qilletni_frontend/board_view/board_view.dart';
 
-class BoardView extends StatelessWidget {
-  const BoardView({super.key});
+class BoardList extends StatelessWidget {
+  const BoardList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        return BoardViewBloc(
+        return BoardListBloc(
           grpcRepository: RepositoryProvider.of<GrpcRepository>(context),
         );
       },
-      child: BlocListener<BoardViewBloc, BoardViewState>(
+      child: BlocListener<BoardListBloc, BoardListState>(
         listener: (context, state) {
           switch (state.status) {
-            case BoardViewStatus.adding:
+            case BoardListStatus.adding:
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 AddBoardModal.showModal(context).then((addedBoard) {
-                  if (addedBoard) {
-                    context.read<BoardViewBloc>().add(BoardListed());
-                  } else {
-                    context.read<BoardViewBloc>().add(BoardEndedAdding());
-                  }
+                  context
+                      .read<BoardListBloc>()
+                      .add(addedBoard ? BoardListed() : BoardEndedAdding());
                 });
               });
               break;
-            case BoardViewStatus.nothing:
+            case BoardListStatus.nothing:
               break;
           }
         },
-        child: BlocBuilder<BoardViewBloc, BoardViewState>(
+        child: BlocBuilder<BoardListBloc, BoardListState>(
           builder: (context, state) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                for (var board in state.boards) boardWidget(board),
+                for (var board in state.boards) boardWidget(context, board),
                 const Spacer(),
                 refreshButton(context),
                 addButton(context),
@@ -55,7 +55,7 @@ class BoardView extends StatelessWidget {
       child: ElevatedButton(
         child: const Text('View Boards'),
         onPressed: () {
-          context.read<BoardViewBloc>().add(BoardListed());
+          context.read<BoardListBloc>().add(BoardListed());
         },
       ),
     );
@@ -67,18 +67,21 @@ class BoardView extends StatelessWidget {
       child: ElevatedButton(
         child: const Text('Add Board'),
         onPressed: () {
-          context.read<BoardViewBloc>().add(BoardClickAdded());
+          context.read<BoardListBloc>().add(BoardClickAdded());
         },
       ),
     );
   }
 
-  Widget boardWidget(Board board) {
-    return Card(
-      margin: const EdgeInsets.all(8),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Text('Board ${board.id} - ${board.name}'),
+  Widget boardWidget(BuildContext context, Board board) {
+    return InkWell(
+      onTap: () => Navigator.push(context, BoardView.route(board: board)),
+      child: Card(
+        margin: const EdgeInsets.all(8),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Text('Board ${board.id} - ${board.name}'),
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:component_grpc/component_grpc.dart';
+import 'package:component_repository/component_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qilletni_frontend/authentication/bloc/authentication_bloc.dart';
@@ -25,16 +26,25 @@ class App extends StatelessWidget {
         RepositoryProvider<AuthenticationRepository>.value(
             value: authenticationRepository),
         RepositoryProvider<GrpcRepository>.value(value: grpcRepository),
+        RepositoryProvider(create: (_) => ForLoopProcessor(grpcRepository)),
+        RepositoryProvider(create: (_) => FunctionProcessor(grpcRepository)),
+        RepositoryProvider(create: (_) => GeneralProcessor(grpcRepository)),
+        RepositoryProvider(create: (_) => LastFmProcessor(grpcRepository)),
+        RepositoryProvider(create: (_) => RawCollectionProcessor(grpcRepository)),
+        RepositoryProvider(create: (_) => SongProcessor(grpcRepository)),
+        RepositoryProvider(create: (_) => SpotifyProcessor(grpcRepository)),
       ],
       child: BlocProvider(
         create: (_) => AuthenticationBloc(authenticationRepository),
-        child: AppView(),
+        child: const AppView(),
       ),
     );
   }
 }
 
 class AppView extends StatefulWidget {
+  const AppView({super.key});
+
   @override
   _AppViewState createState() => _AppViewState();
 }

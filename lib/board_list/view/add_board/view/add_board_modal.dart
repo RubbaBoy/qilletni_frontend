@@ -2,7 +2,7 @@ import 'package:component_grpc/component_grpc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import 'package:qilletni_frontend/board_view/view/add_board/add_board.dart';
+import 'package:qilletni_frontend/board_list/view/add_board/add_board.dart';
 
 class AddBoardModal extends StatelessWidget {
   const AddBoardModal({super.key});
@@ -26,11 +26,8 @@ class AddBoardModal extends StatelessWidget {
         listener: (context, state) {
           switch (state.status) {
             case FormzStatus.pure:
-              break;
             case FormzStatus.valid:
-              break;
             case FormzStatus.invalid:
-              break;
             case FormzStatus.submissionInProgress:
               break;
             case FormzStatus.submissionSuccess:

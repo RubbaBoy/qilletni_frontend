@@ -7,7 +7,6 @@
 
 import 'dart:core' as $core;
 
-import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'component_events.pb.dart' as $0;
@@ -64,14 +63,14 @@ class ForLoopCreateEvent extends $pb.GeneratedMessage {
 class ForLoopChildrenChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ForLoopChildrenChangeEvent', createEmptyInstance: create)
     ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
-    ..p<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'children', $pb.PbFieldType.PY)
+    ..pPS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'children')
     ..hasRequiredFields = false
   ;
 
   ForLoopChildrenChangeEvent._() : super();
   factory ForLoopChildrenChangeEvent({
     $0.ModifyEvent? modify,
-    $core.Iterable<$core.List<$core.int>>? children,
+    $core.Iterable<$core.String>? children,
   }) {
     final _result = create();
     if (modify != null) {
@@ -115,7 +114,7 @@ class ForLoopChildrenChangeEvent extends $pb.GeneratedMessage {
   $0.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.List<$core.List<$core.int>> get children => $_getList(1);
+  $core.List<$core.String> get children => $_getList(1);
 }
 
 class ForLoopIterationsChangeEvent extends $pb.GeneratedMessage {
@@ -247,14 +246,14 @@ class ForLoopDurationChangeEvent extends $pb.GeneratedMessage {
 class ForLoopAbsTimeChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ForLoopAbsTimeChangeEvent', createEmptyInstance: create)
     ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absTime')
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absTime', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   ForLoopAbsTimeChangeEvent._() : super();
   factory ForLoopAbsTimeChangeEvent({
     $0.ModifyEvent? modify,
-    $fixnum.Int64? absTime,
+    $core.int? absTime,
   }) {
     final _result = create();
     if (modify != null) {
@@ -298,9 +297,9 @@ class ForLoopAbsTimeChangeEvent extends $pb.GeneratedMessage {
   $0.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $fixnum.Int64 get absTime => $_getI64(1);
+  $core.int get absTime => $_getIZ(1);
   @$pb.TagNumber(2)
-  set absTime($fixnum.Int64 v) { $_setInt64(1, v); }
+  set absTime($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasAbsTime() => $_has(1);
   @$pb.TagNumber(2)
