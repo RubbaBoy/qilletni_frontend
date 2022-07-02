@@ -21,36 +21,30 @@ class MoveableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        var width = MediaQuery.of(context).size.width;
-        var height = MediaQuery.of(context).size.height;
         return MoveableWidgetBloc(
-            component: component, centerX: width / 2, centerY: height / 2);
+            component: component, centerX: 750, centerY: 100);
       },
       child: BlocBuilder<MoveableWidgetBloc, MoveableWidgetState>(
         builder: (context, state) {
           return Positioned(
             top: state.y,
             left: state.x,
-            child: GestureDetector(
-              onPanStart: (e) => context
-                  .read<MoveableWidgetBloc>()
-                  .add(StartedDraggingComponent()),
-              onPanEnd: (e) => context
-                  .read<MoveableWidgetBloc>()
-                  .add(EndedDraggingComponent()),
-              onPanUpdate: (e) {
-                // var componentPosition =
-                //     (context.findRenderObject() as RenderBox)
-                //         .globalToLocal(e.globalPosition);
-                // var local =
-                //     (boardKey.currentContext?.findRenderObject() as RenderBox)
-                //         .globalToLocal(e.globalPosition);
-
-                context
-                    .read<MoveableWidgetBloc>()
-                    .add(DraggedComponent(e.delta.dx, e.delta.dy));
-              },
-              child: componentFactory.createWidget(component, state),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onPanStart: (e) => context
+                      .read<MoveableWidgetBloc>()
+                      .add(StartedDraggingComponent()),
+                  onPanEnd: (e) => context
+                      .read<MoveableWidgetBloc>()
+                      .add(EndedDraggingComponent()),
+                  onPanUpdate: (e) => context
+                      .read<MoveableWidgetBloc>()
+                      .add(DraggedComponent(e.delta.dx, e.delta.dy)),
+                  child: componentFactory.createHandle(component, state.dragging, 200),
+                ),
+                componentFactory.createWidget(component, state.dragging, 200),
+              ],
             ),
           );
         },

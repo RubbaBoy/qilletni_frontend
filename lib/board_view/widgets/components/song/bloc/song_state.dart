@@ -3,13 +3,13 @@ part of 'song_bloc.dart';
 @immutable
 @CopyWith()
 class SongState extends Equatable {
-  const SongState({required this.songId});
+  const SongState({required this.song});
 
   SongState.fromResponse(ComponentResponse songComponent)
-      : songId = songComponent.song.song.id;
+      : song = songComponent.song.song;
 
-  final String songId;
+  final Song song;
 
   @override
-  List<Object?> get props => [songId];
+  List<Object?> get props => [song];
 }

@@ -7,7 +7,7 @@ part of 'song_bloc.dart';
 // **************************************************************************
 
 abstract class _$SongStateCWProxy {
-  SongState songId(String songId);
+  SongState song(Song song);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `SongState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -16,7 +16,7 @@ abstract class _$SongStateCWProxy {
   /// SongState(...).copyWith(id: 12, name: "My name")
   /// ````
   SongState call({
-    String? songId,
+    Song? song,
   });
 }
 
@@ -27,7 +27,7 @@ class _$SongStateCWProxyImpl implements _$SongStateCWProxy {
   const _$SongStateCWProxyImpl(this._value);
 
   @override
-  SongState songId(String songId) => this(songId: songId);
+  SongState song(Song song) => this(song: song);
 
   @override
 
@@ -38,13 +38,13 @@ class _$SongStateCWProxyImpl implements _$SongStateCWProxy {
   /// SongState(...).copyWith(id: 12, name: "My name")
   /// ````
   SongState call({
-    Object? songId = const $CopyWithPlaceholder(),
+    Object? song = const $CopyWithPlaceholder(),
   }) {
     return SongState(
-      songId: songId == const $CopyWithPlaceholder() || songId == null
-          ? _value.songId
+      song: song == const $CopyWithPlaceholder() || song == null
+          ? _value.song
           // ignore: cast_nullable_to_non_nullable
-          : songId as String,
+          : song as Song,
     );
   }
 }

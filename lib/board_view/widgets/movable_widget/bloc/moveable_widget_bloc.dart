@@ -18,7 +18,7 @@ class MoveableWidgetBloc
       {required this.component,
       required double centerX,
       required double centerY})
-      : super(const MoveableWidgetState.initial()) {
+      : super(const MoveableWidgetState(x: 250, y: 100)) {
     on<DraggedComponent>(_onDraggedWidget);
     on<StartedDraggingComponent>(_onStartedDragging);
     on<EndedDraggingComponent>(_onEndedDragging);

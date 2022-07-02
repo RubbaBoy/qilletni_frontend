@@ -28,6 +28,6 @@ class _StreamTypeListener {
   final _typeListeners = <Type, OnData>{};
 
   void listenType<T>(OnData<T> onData) {
-    _typeListeners[T] = onData as OnData;
+    _typeListeners[T] = (t) => onData(t as T);
   }
 }

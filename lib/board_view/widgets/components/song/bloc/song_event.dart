@@ -6,7 +6,7 @@ abstract class SongEvent {
 }
 
 class SongChanged extends SongEvent {
-  const SongChanged(this.songId);
+  const SongChanged(this.song);
 
-  final String songId;
+  final Song song;
 }
