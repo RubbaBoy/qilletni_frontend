@@ -7,32 +7,53 @@ import 'package:qilletni_frontend/authentication/bloc/authentication_bloc.dart';
 import 'package:qilletni_frontend/home/home.dart';
 import 'package:qilletni_frontend/login/login.dart';
 import 'package:qilletni_frontend/splash/splash.dart';
-import 'package:uni_links/uni_links.dart';
-import 'package:uni_links_desktop/uni_links_desktop.dart';
 
 class App extends StatelessWidget {
   const App(
       {super.key,
       required this.authenticationRepository,
+      required this.componentRepository,
+      required this.boardRepository,
+      required this.structureRepository,
       required this.grpcRepository});
 
   final AuthenticationRepository authenticationRepository;
+  final ComponentRepository componentRepository;
+  final BoardRepository boardRepository;
+  final StructureRepository structureRepository;
   final GrpcRepository grpcRepository;
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<AuthenticationRepository>.value(
-            value: authenticationRepository),
-        RepositoryProvider<GrpcRepository>.value(value: grpcRepository),
-        RepositoryProvider(create: (_) => ForLoopProcessor(grpcRepository)),
-        RepositoryProvider(create: (_) => FunctionProcessor(grpcRepository)),
-        RepositoryProvider(create: (_) => GeneralProcessor(grpcRepository)),
-        RepositoryProvider(create: (_) => LastFmProcessor(grpcRepository)),
-        RepositoryProvider(create: (_) => RawCollectionProcessor(grpcRepository)),
-        RepositoryProvider(create: (_) => SongProcessor(grpcRepository)),
-        RepositoryProvider(create: (_) => SpotifyProcessor(grpcRepository)),
+        RepositoryProvider.value(value: authenticationRepository),
+        RepositoryProvider.value(value: componentRepository),
+        RepositoryProvider.value(value: boardRepository),
+        RepositoryProvider.value(value: structureRepository),
+        RepositoryProvider.value(value: grpcRepository),
+        RepositoryProvider(
+            create: (_) => BoardProcessor(boardRepository, grpcRepository)),
+        RepositoryProvider(
+            create: (_) =>
+                ForLoopProcessor(componentRepository, grpcRepository)),
+        RepositoryProvider(
+            create: (_) =>
+                FunctionProcessor(componentRepository, grpcRepository)),
+        RepositoryProvider(
+            create: (_) =>
+                GeneralProcessor(componentRepository, grpcRepository)),
+        RepositoryProvider(
+            create: (_) =>
+                LastFmProcessor(componentRepository, grpcRepository)),
+        RepositoryProvider(
+            create: (_) =>
+                RawCollectionProcessor(componentRepository, grpcRepository)),
+        RepositoryProvider(
+            create: (_) => SongProcessor(componentRepository, grpcRepository)),
+        RepositoryProvider(
+            create: (_) =>
+                SpotifyProcessor(componentRepository, grpcRepository)),
       ],
       child: BlocProvider(
         create: (_) => AuthenticationBloc(authenticationRepository),

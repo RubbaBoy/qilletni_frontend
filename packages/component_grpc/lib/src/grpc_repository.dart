@@ -1,5 +1,6 @@
 import 'package:component_grpc/component_grpc.dart';
 import 'package:grpc/grpc.dart';
+import 'package:meta/meta.dart';
 
 typedef String AuthSupplier();
 

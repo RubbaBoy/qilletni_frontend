@@ -1,0 +1,3 @@
+extension TypeSwitcher on dynamic {
+
+}

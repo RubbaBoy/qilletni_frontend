@@ -1,4 +1,5 @@
 library component_repository;
 
-export 'src/component_repository.dart';
+export 'src/repositories/repositories.dart';
 export 'src/processors/processors.dart';
+export 'src/stream_type_listener.dart';

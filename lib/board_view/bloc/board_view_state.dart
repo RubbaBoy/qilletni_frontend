@@ -1,6 +1,12 @@
 part of 'board_view_bloc.dart';
 
 @immutable
-abstract class BoardViewState {}
+@CopyWith()
+class BoardViewState extends Equatable {
+  const BoardViewState({this.components = const []});
 
-class BoardViewInitial extends BoardViewState {}
+  final List<ComponentResponse> components;
+
+  @override
+  List<Object> get props => [components];
+}

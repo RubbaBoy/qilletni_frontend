@@ -1,4 +1,5 @@
 import 'package:component_grpc/component_grpc.dart';
+import 'package:component_repository/component_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qilletni_frontend/board_list/bloc/board_list_bloc.dart';
@@ -13,7 +14,7 @@ class BoardList extends StatelessWidget {
     return BlocProvider(
       create: (context) {
         return BoardListBloc(
-          grpcRepository: RepositoryProvider.of<GrpcRepository>(context),
+          boardProcessor: RepositoryProvider.of<BoardProcessor>(context),
         );
       },
       child: BlocListener<BoardListBloc, BoardListState>(
