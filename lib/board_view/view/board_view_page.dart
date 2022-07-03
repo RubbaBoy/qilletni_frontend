@@ -36,6 +36,8 @@ class BoardView extends StatelessWidget {
               children: [
                 for (var component in state.components)
                   MoveableWidget(boardKey: boardKey, component: component),
+                if (state.inspectingComponent != null)
+                  _createSidebar(context, state.inspectingComponent!),
               ],
             );
           },
@@ -43,4 +45,45 @@ class BoardView extends StatelessWidget {
       ),
     );
   }
+
+  Widget _createSidebar(BuildContext context, ComponentResponse component) {
+    return Positioned.fill(
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: Drawer(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints.tightFor(width: kToolbarHeight),
+                    child: CloseButton(
+                      onPressed: () {
+                        context.read<BoardViewBloc>().add(const InspectViewClosed());
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              Text('Inspecting component ${component.base.componentId}'),
+              Text('Here'),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+/*
+  Drawer(
+        child: Column(
+          children: [
+            DrawerHeader(child: Text('Bruh')),
+            Text('More'),
+            Text('Here'),
+          ],
+        ),
+      ),
+   */
 }

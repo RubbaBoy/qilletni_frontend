@@ -1,6 +1,7 @@
 import 'package:component_grpc/component_grpc.dart';
 import 'package:flutter/material.dart';
 import 'package:qilletni_frontend/board_view/widgets/components/function/function_widget.dart';
+import 'package:qilletni_frontend/board_view/widgets/components/inspectable_widget.dart';
 import 'package:qilletni_frontend/board_view/widgets/components/song/song_widget.dart';
 
 class ComponentFactory {
@@ -12,6 +13,12 @@ class ComponentFactory {
   final Color _color = Colors.blue;
   final Color? _draggingColor = Colors.blue[200];
 
+  Widget createInspectableWidget(
+      ComponentResponse component, bool dragging, double width) {
+    return InspectableWidget(
+        component: component, child: createWidget(component, dragging, width));
+  }
+
   Widget createWidget(
       ComponentResponse component, bool dragging, double width) {
     return {
@@ -21,17 +28,21 @@ class ComponentFactory {
       ComponentResponse_Content.rawCollection: _renderDefault,
       ComponentResponse_Content.lastFmCollection: _renderDefault,
       ComponentResponse_Content.spotifyCollection: _renderDefault,
-      ComponentResponse_Content.notSet: (_) => throw 'bruh',
+      ComponentResponse_Content.notSet: (_) => throw 'Not implemented',
     }[component.whichContent()]
         ?.call(component, dragging, width);
   }
 
   Widget? createHandle(
       ComponentResponse component, bool dragging, double width) {
-    return {
+    Widget? handle = {
       ComponentResponse_Content.functionComponent: _renderFunctionHandle,
     }[component.whichContent()]
         ?.call(component, dragging, width);
+
+    if (handle == null) throw 'Handle implementation not found for component type: ${component.whichContent()}';
+
+    return InspectableWidget(component: component, child: handle);
   }
 
   Widget _renderSong(ComponentResponse component, bool dragging, double width) {
@@ -61,7 +72,7 @@ class ComponentFactory {
       child: Center(
         child: Text(
           component.functionComponent.name,
-          style: TextStyle(fontWeight: FontWeight.w500),
+          style: const TextStyle(fontWeight: FontWeight.w500),
         ),
       ),
     );

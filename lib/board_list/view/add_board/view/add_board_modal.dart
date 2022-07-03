@@ -22,7 +22,7 @@ class AddBoardModal extends StatelessWidget {
       create: (context) => AddBoardBloc(
         grpcRepository: RepositoryProvider.of<GrpcRepository>(context),
       ),
-      child: BlocListener<AddBoardBloc, AddBoardState>(
+      child: BlocConsumer<AddBoardBloc, AddBoardState>(
         listener: (context, state) {
           switch (state.status) {
             case FormzStatus.pure:
@@ -39,46 +39,43 @@ class AddBoardModal extends StatelessWidget {
               break;
           }
         },
-        child: BlocBuilder<AddBoardBloc, AddBoardState>(
-          builder: (context, state) {
-            return AlertDialog(
-              title: const Text('Create a Board'),
-              content: TextField(
-                key: const Key('loginForm_emailInput_textField'),
-                onChanged: (name) =>
-                    context.read<AddBoardBloc>().add(ChangedName(name)),
-                onSubmitted: (_) {
-                  if (state.status != FormzStatus.invalid) {
-                    context
-                        .read<AddBoardBloc>()
-                        .add(const SubmittedBoard());
-                  }
-                },
-                keyboardType: TextInputType.name,
-                textInputAction: TextInputAction.done,
-                decoration: InputDecoration(
-                  labelText: 'Board name',
-                  helperText: '',
-                  errorText: state.boardName.valid ? null : 'Invalid name',
-                ),
+        builder: (context, state) {
+          return AlertDialog(
+            title: const Text('Create a Board'),
+            content: TextField(
+              key: const Key('loginForm_emailInput_textField'),
+              onChanged: (name) =>
+                  context.read<AddBoardBloc>().add(ChangedName(name)),
+              onSubmitted: (_) {
+                if (state.status != FormzStatus.invalid) {
+                  context.read<AddBoardBloc>().add(const SubmittedBoard());
+                }
+              },
+              keyboardType: TextInputType.name,
+              textInputAction: TextInputAction.done,
+              decoration: InputDecoration(
+                labelText: 'Board name',
+                helperText: '',
+                errorText: state.boardName.valid ? null : 'Invalid name',
               ),
-              actionsPadding: const EdgeInsets.all(8.0),
-              actions: [
-                ElevatedButton(
-                  onPressed: state.status == FormzStatus.invalid
-                      ? null
-                      : () => context
-                              .read<AddBoardBloc>()
-                              .add(const SubmittedBoard()),
-                  child: const Text('Create'),
-                ),
-                TextButton(
-                    onPressed: () => context.read<AddBoardBloc>().add(const CancelledBoard()),
-                    child: const Text('Cancel')),
-              ],
-            );
-          },
-        ),
+            ),
+            actionsPadding: const EdgeInsets.all(8.0),
+            actions: [
+              ElevatedButton(
+                onPressed: state.status == FormzStatus.invalid
+                    ? null
+                    : () => context
+                        .read<AddBoardBloc>()
+                        .add(const SubmittedBoard()),
+                child: const Text('Create'),
+              ),
+              TextButton(
+                  onPressed: () =>
+                      context.read<AddBoardBloc>().add(const CancelledBoard()),
+                  child: const Text('Cancel')),
+            ],
+          );
+        },
       ),
     );
   }

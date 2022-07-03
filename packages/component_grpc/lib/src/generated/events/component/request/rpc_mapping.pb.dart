@@ -106,8 +106,7 @@ class Playlist extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'owner')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'artworkUrl')
-    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'followers', $pb.PbFieldType.O3)
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'size', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -117,8 +116,7 @@ class Playlist extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? owner,
     $core.String? artworkUrl,
-    $core.int? followers,
-    $core.String? description,
+    $core.int? size,
   }) {
     final _result = create();
     if (id != null) {
@@ -133,11 +131,8 @@ class Playlist extends $pb.GeneratedMessage {
     if (artworkUrl != null) {
       _result.artworkUrl = artworkUrl;
     }
-    if (followers != null) {
-      _result.followers = followers;
-    }
-    if (description != null) {
-      _result.description = description;
+    if (size != null) {
+      _result.size = size;
     }
     return _result;
   }
@@ -199,22 +194,13 @@ class Playlist extends $pb.GeneratedMessage {
   void clearArtworkUrl() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.int get followers => $_getIZ(4);
+  $core.int get size => $_getIZ(4);
   @$pb.TagNumber(5)
-  set followers($core.int v) { $_setSignedInt32(4, v); }
+  set size($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasFollowers() => $_has(4);
+  $core.bool hasSize() => $_has(4);
   @$pb.TagNumber(5)
-  void clearFollowers() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get description => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set description($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasDescription() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearDescription() => clearField(6);
+  void clearSize() => clearField(5);
 }
 
 class Artist extends $pb.GeneratedMessage {

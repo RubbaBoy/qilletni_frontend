@@ -2,7 +2,6 @@ library component_grpc;
 
 export 'src/call_options_utility.dart';
 export 'src/grpc_repository.dart';
-export 'src/component.dart';
 
 // Generated exports below, do not modify
 
@@ -18,3 +17,4 @@ export 'src/generated/events/component/request/rpc_mapping.dart';
 export 'src/generated/events/component/request/spotify_component_data_request_events.dart';
 export 'src/generated/events/component/song_events.dart';
 export 'src/generated/events/component/spotify_events.dart';
+export 'src/generated/search/spotify_search.dart';

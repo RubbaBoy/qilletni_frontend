@@ -68,13 +68,12 @@ const Playlist$json = const {
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'owner', '3': 3, '4': 1, '5': 9, '10': 'owner'},
     const {'1': 'artwork_url', '3': 4, '4': 1, '5': 9, '10': 'artworkUrl'},
-    const {'1': 'followers', '3': 5, '4': 1, '5': 5, '10': 'followers'},
-    const {'1': 'description', '3': 6, '4': 1, '5': 9, '10': 'description'},
+    const {'1': 'size', '3': 5, '4': 1, '5': 5, '10': 'size'},
   ],
 };
 
 /// Descriptor for `Playlist`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List playlistDescriptor = $convert.base64Decode('CghQbGF5bGlzdBIOCgJpZBgBIAEoCVICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIUCgVvd25lchgDIAEoCVIFb3duZXISHwoLYXJ0d29ya191cmwYBCABKAlSCmFydHdvcmtVcmwSHAoJZm9sbG93ZXJzGAUgASgFUglmb2xsb3dlcnMSIAoLZGVzY3JpcHRpb24YBiABKAlSC2Rlc2NyaXB0aW9u');
+final $typed_data.Uint8List playlistDescriptor = $convert.base64Decode('CghQbGF5bGlzdBIOCgJpZBgBIAEoCVICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIUCgVvd25lchgDIAEoCVIFb3duZXISHwoLYXJ0d29ya191cmwYBCABKAlSCmFydHdvcmtVcmwSEgoEc2l6ZRgFIAEoBVIEc2l6ZQ==');
 @$core.Deprecated('Use artistDescriptor instead')
 const Artist$json = const {
   '1': 'Artist',

@@ -9,6 +9,8 @@ part of 'board_view_bloc.dart';
 abstract class _$BoardViewStateCWProxy {
   BoardViewState components(List<ComponentResponse> components);
 
+  BoardViewState inspectingComponent(ComponentResponse? inspectingComponent);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BoardViewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -17,6 +19,7 @@ abstract class _$BoardViewStateCWProxy {
   /// ````
   BoardViewState call({
     List<ComponentResponse>? components,
+    ComponentResponse? inspectingComponent,
   });
 }
 
@@ -31,6 +34,10 @@ class _$BoardViewStateCWProxyImpl implements _$BoardViewStateCWProxy {
       this(components: components);
 
   @override
+  BoardViewState inspectingComponent(ComponentResponse? inspectingComponent) =>
+      this(inspectingComponent: inspectingComponent);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BoardViewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -40,6 +47,7 @@ class _$BoardViewStateCWProxyImpl implements _$BoardViewStateCWProxy {
   /// ````
   BoardViewState call({
     Object? components = const $CopyWithPlaceholder(),
+    Object? inspectingComponent = const $CopyWithPlaceholder(),
   }) {
     return BoardViewState(
       components:
@@ -47,6 +55,10 @@ class _$BoardViewStateCWProxyImpl implements _$BoardViewStateCWProxy {
               ? _value.components
               // ignore: cast_nullable_to_non_nullable
               : components as List<ComponentResponse>,
+      inspectingComponent: inspectingComponent == const $CopyWithPlaceholder()
+          ? _value.inspectingComponent
+          // ignore: cast_nullable_to_non_nullable
+          : inspectingComponent as ComponentResponse?,
     );
   }
 }

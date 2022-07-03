@@ -7,15 +7,14 @@ import 'package:qilletni_frontend/board_view/widgets/components/function/functio
 import 'package:reorderables/reorderables.dart';
 
 class FunctionWidget extends StatelessWidget {
-  FunctionWidget(
-      {required ComponentResponse functionComponent,
-      required this.boardKey,
-      required this.width,
-      this.dragging = false,
-      super.key})
+  FunctionWidget({required ComponentResponse functionComponent,
+    required this.boardKey,
+    required this.width,
+    this.dragging = false,
+    super.key})
       : _functionComponent = functionComponent,
         componentFactory =
-            ComponentFactory(boardKey: boardKey, component: functionComponent);
+        ComponentFactory(boardKey: boardKey, component: functionComponent);
 
   final ComponentFactory componentFactory;
   final ComponentResponse _functionComponent;
@@ -33,9 +32,10 @@ class FunctionWidget extends StatelessWidget {
       child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: BlocProvider(
-            create: (context) => FunctionBloc(
-                functionProcessor: context.read<FunctionProcessor>(),
-                functionComponent: _functionComponent),
+            create: (context) =>
+                FunctionBloc(
+                    functionProcessor: context.read<FunctionProcessor>(),
+                    functionComponent: _functionComponent),
             child: BlocBuilder<FunctionBloc, FunctionState>(
               builder: (context, state) {
                 return Theme(
@@ -44,11 +44,9 @@ class FunctionWidget extends StatelessWidget {
                     shadowColor: Colors.transparent,
                   ),
                   child: ReorderableColumn(
-                    buildDraggableFeedback: (context, constraints, child) {
-                      print(child);
-                      return buildDraggableFeedback(
-                          context, constraints, child);
-                    },
+                    buildDraggableFeedback: (context, constraints, child) =>
+                        buildDraggableFeedback(
+                            context, constraints, child),
                     key: Key('${_functionComponent.base.componentId}_column'),
                     needsLongPressDraggable: false,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +55,7 @@ class FunctionWidget extends StatelessWidget {
                         Padding(
                           key: Key('${child.base.componentId}_pad'),
                           padding: const EdgeInsets.all(4),
-                          child: componentFactory.createWidget(
+                          child: componentFactory.createInspectableWidget(
                               child, dragging, width - (_padding * 2)),
                         )
                     ],
@@ -74,8 +72,8 @@ class FunctionWidget extends StatelessWidget {
     );
   }
 
-  Widget buildDraggableFeedback(
-      BuildContext context, BoxConstraints constraints, Widget child) {
+  Widget buildDraggableFeedback(BuildContext context,
+      BoxConstraints constraints, Widget child) {
     return Transform(
       transform: Matrix4.rotationZ(0),
       alignment: FractionalOffset.topLeft,
