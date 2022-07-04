@@ -2,7 +2,7 @@ import 'package:component_grpc/component_grpc.dart';
 import 'package:component_repository/component_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qilletni_frontend/board_view/widgets/components/song/song_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/components/song/song_widget.dart';
 
 class SongWidget extends StatelessWidget {
   const SongWidget(

@@ -62,6 +62,53 @@ class StructureRequestEvent extends $pb.GeneratedMessage {
   void clearBoardId() => clearField(1);
 }
 
+class FunctionRequestEvent extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FunctionRequestEvent', createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'componentId')
+    ..hasRequiredFields = false
+  ;
+
+  FunctionRequestEvent._() : super();
+  factory FunctionRequestEvent({
+    $core.String? componentId,
+  }) {
+    final _result = create();
+    if (componentId != null) {
+      _result.componentId = componentId;
+    }
+    return _result;
+  }
+  factory FunctionRequestEvent.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FunctionRequestEvent.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FunctionRequestEvent clone() => FunctionRequestEvent()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FunctionRequestEvent copyWith(void Function(FunctionRequestEvent) updates) => super.copyWith((message) => updates(message as FunctionRequestEvent)) as FunctionRequestEvent; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static FunctionRequestEvent create() => FunctionRequestEvent._();
+  FunctionRequestEvent createEmptyInstance() => create();
+  static $pb.PbList<FunctionRequestEvent> createRepeated() => $pb.PbList<FunctionRequestEvent>();
+  @$core.pragma('dart2js:noInline')
+  static FunctionRequestEvent getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FunctionRequestEvent>(create);
+  static FunctionRequestEvent? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get componentId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set componentId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasComponentId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearComponentId() => clearField(1);
+}
+
 class StructureResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StructureResponse', createEmptyInstance: create)
     ..aOM<$0.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $0.ResponseError.create)
@@ -117,6 +164,71 @@ class StructureResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.List<ComponentResponse> get components => $_getList(1);
+}
+
+class FunctionResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FunctionResponse', createEmptyInstance: create)
+    ..aOM<$0.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $0.ResponseError.create)
+    ..aOM<ComponentResponse>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'component', subBuilder: ComponentResponse.create)
+    ..hasRequiredFields = false
+  ;
+
+  FunctionResponse._() : super();
+  factory FunctionResponse({
+    $0.ResponseError? error,
+    ComponentResponse? component,
+  }) {
+    final _result = create();
+    if (error != null) {
+      _result.error = error;
+    }
+    if (component != null) {
+      _result.component = component;
+    }
+    return _result;
+  }
+  factory FunctionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FunctionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FunctionResponse clone() => FunctionResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FunctionResponse copyWith(void Function(FunctionResponse) updates) => super.copyWith((message) => updates(message as FunctionResponse)) as FunctionResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static FunctionResponse create() => FunctionResponse._();
+  FunctionResponse createEmptyInstance() => create();
+  static $pb.PbList<FunctionResponse> createRepeated() => $pb.PbList<FunctionResponse>();
+  @$core.pragma('dart2js:noInline')
+  static FunctionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FunctionResponse>(create);
+  static FunctionResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.ResponseError get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($0.ResponseError v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.ResponseError ensureError() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ComponentResponse get component => $_getN(1);
+  @$pb.TagNumber(2)
+  set component(ComponentResponse v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasComponent() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearComponent() => clearField(2);
+  @$pb.TagNumber(2)
+  ComponentResponse ensureComponent() => $_ensure(1);
 }
 
 enum ComponentResponse_Content {

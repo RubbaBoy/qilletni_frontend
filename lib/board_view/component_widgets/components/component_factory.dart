@@ -1,14 +1,13 @@
 import 'package:component_grpc/component_grpc.dart';
 import 'package:flutter/material.dart';
-import 'package:qilletni_frontend/board_view/widgets/components/function/function_widget.dart';
-import 'package:qilletni_frontend/board_view/widgets/components/inspectable_widget.dart';
-import 'package:qilletni_frontend/board_view/widgets/components/song/song_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/components/function/function_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/components/inspectable_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/components/song/song_widget.dart';
 
 class ComponentFactory {
-  ComponentFactory({required this.boardKey, required this.component});
+  ComponentFactory({required this.boardKey});
 
   final GlobalKey boardKey;
-  final ComponentResponse component;
 
   final Color _color = Colors.blue;
   final Color? _draggingColor = Colors.blue[200];
@@ -28,7 +27,7 @@ class ComponentFactory {
       ComponentResponse_Content.rawCollection: _renderDefault,
       ComponentResponse_Content.lastFmCollection: _renderDefault,
       ComponentResponse_Content.spotifyCollection: _renderDefault,
-      ComponentResponse_Content.notSet: (_) => throw 'Not implemented',
+      ComponentResponse_Content.notSet: (_) => throw 'No component set',
     }[component.whichContent()]
         ?.call(component, dragging, width);
   }

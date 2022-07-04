@@ -1,8 +1,8 @@
 import 'package:component_grpc/component_grpc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qilletni_frontend/board_view/widgets/components/component_factory.dart';
-import 'package:qilletni_frontend/board_view/widgets/movable_widget/moveable_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/components/component_factory.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/movable_widget/moveable_widget.dart';
 
 typedef ChildBuilder = Widget Function(BuildContext context,
     ComponentResponse component, MoveableWidgetState componentState);
@@ -10,7 +10,7 @@ typedef ChildBuilder = Widget Function(BuildContext context,
 class MoveableWidget extends StatelessWidget {
   MoveableWidget({super.key, required this.boardKey, required this.component})
       : componentFactory =
-            ComponentFactory(boardKey: boardKey, component: component);
+            ComponentFactory(boardKey: boardKey);
 
   final ComponentFactory componentFactory;
   final ComponentResponse component;

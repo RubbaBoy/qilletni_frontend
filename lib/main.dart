@@ -32,7 +32,7 @@ Future<void> main() async {
 
   final componentRepository = ComponentRepository();
   final boardRepository = BoardRepository();
-  final structureRepository = StructureRepository(grpcRepository);
+  final structureRepository = ComponentRequestRepository(grpcRepository);
 
   // runApp(MaterialApp(
   //   home: Scaffold(

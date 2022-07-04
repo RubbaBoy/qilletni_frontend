@@ -7,15 +7,25 @@ option java_package = "is.yarr.qilletni.grpc.gen.request";
 
 service ComponentRequestService {
   rpc RequestStructure(StructureRequestEvent) returns (StructureResponse);
+  rpc RequestFunction(FunctionRequestEvent) returns (FunctionResponse);
 }
 
 message StructureRequestEvent {
   string board_id = 1;
 }
 
+message FunctionRequestEvent {
+  string component_id = 1;
+}
+
 message StructureResponse {
   optional ResponseError error = 1;
   repeated ComponentResponse components = 2;
+}
+
+message FunctionResponse {
+  optional ResponseError error = 1;
+  ComponentResponse component = 2;
 }
 
 message ComponentResponse {

@@ -18,6 +18,16 @@ const StructureRequestEvent$json = const {
 
 /// Descriptor for `StructureRequestEvent`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List structureRequestEventDescriptor = $convert.base64Decode('ChVTdHJ1Y3R1cmVSZXF1ZXN0RXZlbnQSGQoIYm9hcmRfaWQYASABKAlSB2JvYXJkSWQ=');
+@$core.Deprecated('Use functionRequestEventDescriptor instead')
+const FunctionRequestEvent$json = const {
+  '1': 'FunctionRequestEvent',
+  '2': const [
+    const {'1': 'component_id', '3': 1, '4': 1, '5': 9, '10': 'componentId'},
+  ],
+};
+
+/// Descriptor for `FunctionRequestEvent`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List functionRequestEventDescriptor = $convert.base64Decode('ChRGdW5jdGlvblJlcXVlc3RFdmVudBIhCgxjb21wb25lbnRfaWQYASABKAlSC2NvbXBvbmVudElk');
 @$core.Deprecated('Use structureResponseDescriptor instead')
 const StructureResponse$json = const {
   '1': 'StructureResponse',
@@ -32,6 +42,20 @@ const StructureResponse$json = const {
 
 /// Descriptor for `StructureResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List structureResponseDescriptor = $convert.base64Decode('ChFTdHJ1Y3R1cmVSZXNwb25zZRIpCgVlcnJvchgBIAEoCzIOLlJlc3BvbnNlRXJyb3JIAFIFZXJyb3KIAQESMgoKY29tcG9uZW50cxgCIAMoCzISLkNvbXBvbmVudFJlc3BvbnNlUgpjb21wb25lbnRzQggKBl9lcnJvcg==');
+@$core.Deprecated('Use functionResponseDescriptor instead')
+const FunctionResponse$json = const {
+  '1': 'FunctionResponse',
+  '2': const [
+    const {'1': 'error', '3': 1, '4': 1, '5': 11, '6': '.ResponseError', '9': 0, '10': 'error', '17': true},
+    const {'1': 'component', '3': 2, '4': 1, '5': 11, '6': '.ComponentResponse', '10': 'component'},
+  ],
+  '8': const [
+    const {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `FunctionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List functionResponseDescriptor = $convert.base64Decode('ChBGdW5jdGlvblJlc3BvbnNlEikKBWVycm9yGAEgASgLMg4uUmVzcG9uc2VFcnJvckgAUgVlcnJvcogBARIwCgljb21wb25lbnQYAiABKAsyEi5Db21wb25lbnRSZXNwb25zZVIJY29tcG9uZW50QggKBl9lcnJvcg==');
 @$core.Deprecated('Use componentResponseDescriptor instead')
 const ComponentResponse$json = const {
   '1': 'ComponentResponse',

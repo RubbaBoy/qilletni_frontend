@@ -20,6 +20,12 @@ class ComponentRequestServiceClient extends $grpc.Client {
           ($1.StructureRequestEvent value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $1.StructureResponse.fromBuffer(value));
+  static final _$requestFunction =
+      $grpc.ClientMethod<$1.FunctionRequestEvent, $1.FunctionResponse>(
+          '/ComponentRequestService/RequestFunction',
+          ($1.FunctionRequestEvent value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $1.FunctionResponse.fromBuffer(value));
 
   ComponentRequestServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -30,6 +36,12 @@ class ComponentRequestServiceClient extends $grpc.Client {
       $1.StructureRequestEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$requestStructure, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.FunctionResponse> requestFunction(
+      $1.FunctionRequestEvent request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$requestFunction, request, options: options);
   }
 }
 
@@ -46,6 +58,15 @@ abstract class ComponentRequestServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $1.StructureRequestEvent.fromBuffer(value),
             ($1.StructureResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$1.FunctionRequestEvent, $1.FunctionResponse>(
+            'RequestFunction',
+            requestFunction_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $1.FunctionRequestEvent.fromBuffer(value),
+            ($1.FunctionResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.StructureResponse> requestStructure_Pre(
@@ -54,6 +75,13 @@ abstract class ComponentRequestServiceBase extends $grpc.Service {
     return requestStructure(call, await request);
   }
 
+  $async.Future<$1.FunctionResponse> requestFunction_Pre($grpc.ServiceCall call,
+      $async.Future<$1.FunctionRequestEvent> request) async {
+    return requestFunction(call, await request);
+  }
+
   $async.Future<$1.StructureResponse> requestStructure(
       $grpc.ServiceCall call, $1.StructureRequestEvent request);
+  $async.Future<$1.FunctionResponse> requestFunction(
+      $grpc.ServiceCall call, $1.FunctionRequestEvent request);
 }

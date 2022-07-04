@@ -20,7 +20,7 @@ class App extends StatelessWidget {
   final AuthenticationRepository authenticationRepository;
   final ComponentRepository componentRepository;
   final BoardRepository boardRepository;
-  final StructureRepository structureRepository;
+  final ComponentRequestRepository structureRepository;
   final GrpcRepository grpcRepository;
 
   @override

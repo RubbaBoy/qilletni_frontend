@@ -11,3 +11,7 @@ class ChildrenReordered extends FunctionEvent {
   final int oldIndex;
   final int newIndex;
 }
+
+class ChildrenChangedExternally extends FunctionEvent {
+  const ChildrenChangedExternally();
+}

@@ -3,16 +3,19 @@ import 'package:component_repository/component_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qilletni_frontend/board_view/board_view.dart';
-import 'package:qilletni_frontend/board_view/widgets/movable_widget/moveable_widget.dart';
+import 'package:qilletni_frontend/board_view/component_inspectors/inspinspector_widget_factory.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/movable_widget/moveable_widget.dart';
 
 class BoardView extends StatelessWidget {
-  BoardView({required this.board, super.key});
+  BoardView({required this.board, super.key})
+    : inspectorWidgetFactory = InspectorWidgetFactory();
 
   static Route route({required Board board}) {
     return MaterialPageRoute<void>(builder: (_) => BoardView(board: board));
   }
 
   final Board board;
+  final InspectorWidgetFactory inspectorWidgetFactory;
   final GlobalKey boardKey = GlobalKey();
 
   @override
@@ -21,10 +24,10 @@ class BoardView extends StatelessWidget {
       appBar: AppBar(title: Text('Board ${board.name}')),
       floatingActionButton: FloatingActionButton(
           onPressed: () =>
-              context.read<BoardViewBloc>().add(ComponentWidgetAdded())),
+              context.read<BoardViewBloc>().add(const ComponentWidgetAdded())),
       body: BlocProvider(
         create: (context) => BoardViewBloc(
-          structureRepository: context.read<StructureRepository>(),
+          structureRepository: context.read<ComponentRequestRepository>(),
           board: board,
           boardKey: boardKey,
         ),
@@ -66,24 +69,11 @@ class BoardView extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Inspecting component ${component.base.componentId}'),
-              Text('Here'),
+              inspectorWidgetFactory.createInspectorWidget(component),
             ],
           ),
         ),
       ),
     );
   }
-
-/*
-  Drawer(
-        child: Column(
-          children: [
-            DrawerHeader(child: Text('Bruh')),
-            Text('More'),
-            Text('Here'),
-          ],
-        ),
-      ),
-   */
 }

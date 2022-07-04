@@ -27,7 +27,7 @@ class BoardViewBloc extends Bloc<BoardViewEvent, BoardViewState> {
     });
   }
 
-  final StructureRepository structureRepository;
+  final ComponentRequestRepository structureRepository;
   final Board board;
   final GlobalKey boardKey;
 
