@@ -1,4 +1,6 @@
 syntax = "proto3";
+import "events/component/request/component_request_events.proto";
+import "events/error_response.proto";
 
 option java_multiple_files = true;
 option java_package = "is.yarr.qilletni.grpc.gen";
@@ -27,13 +29,11 @@ message HelloReply {
 
 
 
-message ResponseError {
-  string message = 1;
-  int32 code = 2;
-}
-
-message EmptyResponse {
-  optional ResponseError error = 1;
+message BasicResponse {
+  oneof response {
+    ResponseError error = 1;
+    ComponentResponse component = 2;
+  }
 }
 
 message CreateComponentResponse {

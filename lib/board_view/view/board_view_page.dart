@@ -7,16 +7,28 @@ import 'package:qilletni_frontend/board_view/component_inspectors/inspinspector_
 import 'package:qilletni_frontend/board_view/component_widgets/movable_widget/moveable_widget.dart';
 
 class BoardView extends StatelessWidget {
-  BoardView({required this.board, super.key})
-    : inspectorWidgetFactory = InspectorWidgetFactory();
+  BoardView({required this.boardComponentManager, super.key})
+      : board = boardComponentManager.board,
+        inspectorWidgetFactory = InspectorWidgetFactory(
+            boardComponentManager: boardComponentManager);
 
-  static Route route({required Board board}) {
-    return MaterialPageRoute<void>(builder: (_) => BoardView(board: board));
+  static Future<Route> route(
+      {required Board board,
+      required ComponentRepository componentRepository,
+      required ComponentRequestRepository componentRequestRepository}) async {
+    final boardComponentManager = await BoardComponentManager.create(
+        board: board,
+        componentRepository: componentRepository,
+        componentRequestRepository: componentRequestRepository);
+    return MaterialPageRoute<void>(
+        builder: (_) =>
+            BoardView(boardComponentManager: boardComponentManager));
   }
 
   final Board board;
+  final BoardComponentManager boardComponentManager;
   final InspectorWidgetFactory inspectorWidgetFactory;
-  final GlobalKey boardKey = GlobalKey();
+  final GlobalKey boardKey = GlobalKey(debugLabel: 'board_key');
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +37,11 @@ class BoardView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
           onPressed: () =>
               context.read<BoardViewBloc>().add(const ComponentWidgetAdded())),
-      body: BlocProvider(
+      body: BlocProvider<BoardViewBloc>(
         create: (context) => BoardViewBloc(
-          structureRepository: context.read<ComponentRequestRepository>(),
           board: board,
           boardKey: boardKey,
+          requestRepository: context.read<ComponentRequestRepository>(),
         ),
         child: BlocBuilder<BoardViewBloc, BoardViewState>(
           builder: (context, state) {
@@ -38,7 +50,10 @@ class BoardView extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 for (var component in state.components)
-                  MoveableWidget(boardKey: boardKey, component: component),
+                  MoveableWidget(
+                      boardKey: boardKey,
+                      component: component,
+                      boardComponentManager: boardComponentManager),
                 if (state.inspectingComponent != null)
                   _createSidebar(context, state.inspectingComponent!),
               ],
@@ -60,10 +75,13 @@ class BoardView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   ConstrainedBox(
-                    constraints: const BoxConstraints.tightFor(width: kToolbarHeight),
+                    constraints:
+                        const BoxConstraints.tightFor(width: kToolbarHeight),
                     child: CloseButton(
                       onPressed: () {
-                        context.read<BoardViewBloc>().add(const InspectViewClosed());
+                        context
+                            .read<BoardViewBloc>()
+                            .add(const InspectViewClosed());
                       },
                     ),
                   ),

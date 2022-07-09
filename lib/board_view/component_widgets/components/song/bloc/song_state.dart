@@ -1,15 +1,14 @@
 part of 'song_bloc.dart';
 
 @immutable
-@CopyWith()
-class SongState extends Equatable {
-  const SongState({required this.song});
+class SongState extends AbstractComponentState<SongState> {
+  const SongState(super.component);
 
-  SongState.fromResponse(ComponentResponse songComponent)
-      : song = songComponent.song.song;
+  ComponentBase get base => componentResponse.base;
 
-  final Song song;
+  SongComponentResponse get component => componentResponse.song;
 
   @override
-  List<Object?> get props => [song];
+  SongState copyWithNewComponent(ComponentResponse component) =>
+      SongState(component);
 }

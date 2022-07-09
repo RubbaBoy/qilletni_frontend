@@ -27,6 +27,9 @@ class ChildrenReordered extends FunctionInspectorEvent {
   final int newIndex;
 }
 
-class ChildrenChangedExternally extends FunctionInspectorEvent {
-  const ChildrenChangedExternally();
+class ComponentUpdated extends FunctionInspectorEvent with ComponentUpdatedEventMixin {
+  const ComponentUpdated(this.componentResponse);
+
+  @override
+  final ComponentResponse componentResponse;
 }

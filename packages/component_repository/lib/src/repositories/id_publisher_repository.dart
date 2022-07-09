@@ -4,14 +4,14 @@ import 'package:component_grpc/component_grpc.dart';
 
 /// [T] is the creation response
 class IdPublisherRepository<T> {
-  final streams = <String, StreamController>{};
+  final streams = <String, StreamController<ComponentResponse>>{};
   final createStream = StreamController<T>();
 
-  /// Returns a stream of gRPC events. Things like [ForLoopChildrenChangeEvent],
-  /// [FunctionNameChangeEvent], etc. for the given component ID. Events are
-  /// fired after they have been successfully received by the server,
-  /// indicating a state change.
-  Stream<dynamic> listenToComponent(String id) {
+  /// Returns a stream of gRPC objects, such as a [ComponentResponse] or
+  /// [Board]. for the given component ID. Objects are the post-modification
+  /// state of them, indicating the server has successfully made a change and
+  /// the client should reflect changes.
+  Stream<ComponentResponse> componentStream(String id) {
     return streams
         .putIfAbsent(id, () => StreamController.broadcast())
         .stream;
@@ -21,8 +21,8 @@ class IdPublisherRepository<T> {
     return createStream.stream;
   }
 
-  void publishEvent(String id, dynamic event) {
-    streams[id]?.sink.add(event);
+  void publishChange(String id, ComponentResponse changedObject) {
+    streams[id]?.sink.add(changedObject);
   }
 
   void publishCreate(T createResponse) {

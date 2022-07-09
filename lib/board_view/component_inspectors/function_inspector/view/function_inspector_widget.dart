@@ -6,16 +6,20 @@ import 'package:qilletni_frontend/board_view/component_inspectors/function_inspe
 import 'package:reorderables/reorderables.dart';
 
 class FunctionInspectorWidget extends StatelessWidget {
-  const FunctionInspectorWidget({required this.component, super.key});
+  const FunctionInspectorWidget(
+      {required this.component,
+      required this.boardComponentManager,
+      super.key});
 
   final ComponentResponse component;
+  final BoardComponentManager boardComponentManager;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => FunctionInspectorBloc(
-        component: component,
-        componentRequestRepository: context.read<ComponentRequestRepository>(),
+        componentId: component.base.componentId,
+        boardComponentManager: boardComponentManager,
         functionProcessor: context.read<FunctionProcessor>(),
       ),
       child: BlocBuilder<FunctionInspectorBloc, FunctionInspectorState>(
@@ -38,18 +42,18 @@ class FunctionInspectorWidget extends StatelessWidget {
                 needsLongPressDraggable: false,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var child in state.children)
+                  for (var child in state.component.children)
                     Padding(
-                      key: Key('${child.base.componentId}_pad_other'),
-                      padding: const EdgeInsets.all(4),
-                      child: Container(
-                        color: Colors.red,
+                        key: Key('${child.base.componentId}_pad_other'),
+                        padding: const EdgeInsets.all(4),
+                        child: Container(
+                          color: Colors.red,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text('${child.whichContent().name} component\n${child.song.song.name}'),
+                            child: Text(
+                                '${child.whichContent().name} component\n${child.song.song.name}'),
                           ),
-                      )
-                    )
+                        ))
                 ],
                 onReorder: (int oldIndex, int newIndex) {
                   context
@@ -64,8 +68,8 @@ class FunctionInspectorWidget extends StatelessWidget {
     );
   }
 
-  Widget buildDraggableFeedback(BuildContext context,
-      BoxConstraints constraints, Widget child) {
+  Widget buildDraggableFeedback(
+      BuildContext context, BoxConstraints constraints, Widget child) {
     return Transform(
       transform: Matrix4.rotationZ(0),
       alignment: FractionalOffset.topLeft,

@@ -64,7 +64,7 @@ void main(List<String> args) {
 
 void processDir(Directory input, Directory protoPath, String normalizedOut,
     List<ExportFile> files) {
-  print('Traversing: ${input.path} output: $normalizedOut');
+  print('Traversing: ${p.normalize(input.path)} output: $normalizedOut');
 
   for (var item in input.listSync()) {
     if (item is File) {

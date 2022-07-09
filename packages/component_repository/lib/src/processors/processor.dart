@@ -25,7 +25,7 @@ abstract class Processor<T extends Client> {
   GeneratedMessage createModify(String id);
 
   @protected
-  void postProcessEvent(String id, GeneratedMessage event);
+  void postChange(String id, ComponentResponse event);
 
   /// [requestMethod] should be something like [client.changeName], and
   /// [changeEvent] should be an instance of something like [SongChangeEvent],
@@ -49,7 +49,7 @@ abstract class Processor<T extends Client> {
         return error;
       }
 
-      postProcessEvent(id, changeEvent);
+      postChange(id, response.component);
       return null;
     });
   }

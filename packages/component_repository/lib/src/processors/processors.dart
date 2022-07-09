@@ -1,4 +1,5 @@
 export 'processor.dart';
+export 'board_component_manager.dart';
 export 'board/board_processor.dart';
 export 'component/component_processor.dart';
 export 'component/for_loop_processor.dart';

@@ -37,30 +37,20 @@ const HelloReply$json = const {
 
 /// Descriptor for `HelloReply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List helloReplyDescriptor = $convert.base64Decode('CgpIZWxsb1JlcGx5EhgKB21lc3NhZ2UYASABKAlSB21lc3NhZ2U=');
-@$core.Deprecated('Use responseErrorDescriptor instead')
-const ResponseError$json = const {
-  '1': 'ResponseError',
+@$core.Deprecated('Use basicResponseDescriptor instead')
+const BasicResponse$json = const {
+  '1': 'BasicResponse',
   '2': const [
-    const {'1': 'message', '3': 1, '4': 1, '5': 9, '10': 'message'},
-    const {'1': 'code', '3': 2, '4': 1, '5': 5, '10': 'code'},
-  ],
-};
-
-/// Descriptor for `ResponseError`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List responseErrorDescriptor = $convert.base64Decode('Cg1SZXNwb25zZUVycm9yEhgKB21lc3NhZ2UYASABKAlSB21lc3NhZ2USEgoEY29kZRgCIAEoBVIEY29kZQ==');
-@$core.Deprecated('Use emptyResponseDescriptor instead')
-const EmptyResponse$json = const {
-  '1': 'EmptyResponse',
-  '2': const [
-    const {'1': 'error', '3': 1, '4': 1, '5': 11, '6': '.ResponseError', '9': 0, '10': 'error', '17': true},
+    const {'1': 'error', '3': 1, '4': 1, '5': 11, '6': '.ResponseError', '9': 0, '10': 'error'},
+    const {'1': 'component', '3': 2, '4': 1, '5': 11, '6': '.ComponentResponse', '9': 0, '10': 'component'},
   ],
   '8': const [
-    const {'1': '_error'},
+    const {'1': 'response'},
   ],
 };
 
-/// Descriptor for `EmptyResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List emptyResponseDescriptor = $convert.base64Decode('Cg1FbXB0eVJlc3BvbnNlEikKBWVycm9yGAEgASgLMg4uUmVzcG9uc2VFcnJvckgAUgVlcnJvcogBAUIICgZfZXJyb3I=');
+/// Descriptor for `BasicResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List basicResponseDescriptor = $convert.base64Decode('Cg1CYXNpY1Jlc3BvbnNlEiYKBWVycm9yGAEgASgLMg4uUmVzcG9uc2VFcnJvckgAUgVlcnJvchIyCgljb21wb25lbnQYAiABKAsyEi5Db21wb25lbnRSZXNwb25zZUgAUgljb21wb25lbnRCCgoIcmVzcG9uc2U=');
 @$core.Deprecated('Use createComponentResponseDescriptor instead')
 const CreateComponentResponse$json = const {
   '1': 'CreateComponentResponse',

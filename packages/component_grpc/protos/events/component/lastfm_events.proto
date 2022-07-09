@@ -8,9 +8,9 @@ option java_package = "is.yarr.qilletni.grpc.gen.events.component.lastfm";
 
 service LastFmService {
   rpc Create(LastFmCreateEvent) returns (CreateComponentResponse);
-  rpc ChangeSequential(LastFmSequentialChangeEvent) returns (EmptyResponse);
-  rpc ChangeLimit(LastFmLimitChangeEvent) returns (EmptyResponse);
-  rpc ChangeType(LastFmTypeChangeEvent) returns (EmptyResponse);
+  rpc ChangeSequential(LastFmSequentialChangeEvent) returns (BasicResponse);
+  rpc ChangeLimit(LastFmLimitChangeEvent) returns (BasicResponse);
+  rpc ChangeType(LastFmTypeChangeEvent) returns (BasicResponse);
 }
 
 message LastFmCreateEvent {

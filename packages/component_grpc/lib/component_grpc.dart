@@ -17,4 +17,5 @@ export 'src/generated/events/component/request/rpc_mapping.dart';
 export 'src/generated/events/component/request/spotify_component_data_request_events.dart';
 export 'src/generated/events/component/song_events.dart';
 export 'src/generated/events/component/spotify_events.dart';
+export 'src/generated/events/error_response.dart';
 export 'src/generated/search/spotify_search.dart';

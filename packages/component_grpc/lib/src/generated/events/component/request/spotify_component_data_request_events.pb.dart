@@ -9,7 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../component_events.pb.dart' as $0;
+import '../../error_response.pb.dart' as $1;
 import 'rpc_mapping.pb.dart' as $2;
 
 class SpotifyComponentDataRequestEvent extends $pb.GeneratedMessage {
@@ -77,7 +77,7 @@ class SpotifyComponentDataResponse extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyComponentDataResponse', createEmptyInstance: create)
     ..oo(0, [2, 3, 4, 5])
-    ..aOM<$0.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $0.ResponseError.create)
+    ..aOM<$1.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $1.ResponseError.create)
     ..aOM<SpotifyAlbumDataResponse>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'albumData', subBuilder: SpotifyAlbumDataResponse.create)
     ..aOM<SpotifyArtistDataResponse>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'artistData', subBuilder: SpotifyArtistDataResponse.create)
     ..aOM<SpotifyPlaylistDataResponse>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'playlistData', subBuilder: SpotifyPlaylistDataResponse.create)
@@ -87,7 +87,7 @@ class SpotifyComponentDataResponse extends $pb.GeneratedMessage {
 
   SpotifyComponentDataResponse._() : super();
   factory SpotifyComponentDataResponse({
-    $0.ResponseError? error,
+    $1.ResponseError? error,
     SpotifyAlbumDataResponse? albumData,
     SpotifyArtistDataResponse? artistData,
     SpotifyPlaylistDataResponse? playlistData,
@@ -136,15 +136,15 @@ class SpotifyComponentDataResponse extends $pb.GeneratedMessage {
   void clearSpotifyData() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  $0.ResponseError get error => $_getN(0);
+  $1.ResponseError get error => $_getN(0);
   @$pb.TagNumber(1)
-  set error($0.ResponseError v) { setField(1, v); }
+  set error($1.ResponseError v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasError() => $_has(0);
   @$pb.TagNumber(1)
   void clearError() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ResponseError ensureError() => $_ensure(0);
+  $1.ResponseError ensureError() => $_ensure(0);
 
   @$pb.TagNumber(2)
   SpotifyAlbumDataResponse get albumData => $_getN(1);

@@ -9,17 +9,17 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'component_events.pb.dart' as $0;
+import 'component_events.pb.dart' as $1;
 
 class RawCollectionCreateEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RawCollectionCreateEvent', createEmptyInstance: create)
-    ..aOM<$0.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $0.CreateEvent.create)
+    ..aOM<$1.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $1.CreateEvent.create)
     ..hasRequiredFields = false
   ;
 
   RawCollectionCreateEvent._() : super();
   factory RawCollectionCreateEvent({
-    $0.CreateEvent? create_1,
+    $1.CreateEvent? create_1,
   }) {
     final _result = create();
     if (create_1 != null) {
@@ -49,27 +49,27 @@ class RawCollectionCreateEvent extends $pb.GeneratedMessage {
   static RawCollectionCreateEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.CreateEvent get create_1 => $_getN(0);
+  $1.CreateEvent get create_1 => $_getN(0);
   @$pb.TagNumber(1)
-  set create_1($0.CreateEvent v) { setField(1, v); }
+  set create_1($1.CreateEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCreate_1() => $_has(0);
   @$pb.TagNumber(1)
   void clearCreate_1() => clearField(1);
   @$pb.TagNumber(1)
-  $0.CreateEvent ensureCreate_1() => $_ensure(0);
+  $1.CreateEvent ensureCreate_1() => $_ensure(0);
 }
 
 class RawCollectionSequentialChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RawCollectionSequentialChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sequential')
     ..hasRequiredFields = false
   ;
 
   RawCollectionSequentialChangeEvent._() : super();
   factory RawCollectionSequentialChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.bool? sequential,
   }) {
     final _result = create();
@@ -103,15 +103,15 @@ class RawCollectionSequentialChangeEvent extends $pb.GeneratedMessage {
   static RawCollectionSequentialChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.bool get sequential => $_getBF(1);
@@ -125,14 +125,14 @@ class RawCollectionSequentialChangeEvent extends $pb.GeneratedMessage {
 
 class RawCollectionSongsChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RawCollectionSongsChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..pPS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'songIds')
     ..hasRequiredFields = false
   ;
 
   RawCollectionSongsChangeEvent._() : super();
   factory RawCollectionSongsChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.Iterable<$core.String>? songIds,
   }) {
     final _result = create();
@@ -166,15 +166,15 @@ class RawCollectionSongsChangeEvent extends $pb.GeneratedMessage {
   static RawCollectionSongsChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.String> get songIds => $_getList(1);

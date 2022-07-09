@@ -9,19 +9,19 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'component_events.pb.dart' as $0;
+import 'component_events.pb.dart' as $1;
 
-import 'request/rpc_mapping.pbenum.dart' as $2;
+import 'request/rpc_mapping.pbenum.dart' as $3;
 
 class LastFmCreateEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LastFmCreateEvent', createEmptyInstance: create)
-    ..aOM<$0.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $0.CreateEvent.create)
+    ..aOM<$1.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $1.CreateEvent.create)
     ..hasRequiredFields = false
   ;
 
   LastFmCreateEvent._() : super();
   factory LastFmCreateEvent({
-    $0.CreateEvent? create_1,
+    $1.CreateEvent? create_1,
   }) {
     final _result = create();
     if (create_1 != null) {
@@ -51,27 +51,27 @@ class LastFmCreateEvent extends $pb.GeneratedMessage {
   static LastFmCreateEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.CreateEvent get create_1 => $_getN(0);
+  $1.CreateEvent get create_1 => $_getN(0);
   @$pb.TagNumber(1)
-  set create_1($0.CreateEvent v) { setField(1, v); }
+  set create_1($1.CreateEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCreate_1() => $_has(0);
   @$pb.TagNumber(1)
   void clearCreate_1() => clearField(1);
   @$pb.TagNumber(1)
-  $0.CreateEvent ensureCreate_1() => $_ensure(0);
+  $1.CreateEvent ensureCreate_1() => $_ensure(0);
 }
 
 class LastFmSequentialChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LastFmSequentialChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sequential')
     ..hasRequiredFields = false
   ;
 
   LastFmSequentialChangeEvent._() : super();
   factory LastFmSequentialChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.bool? sequential,
   }) {
     final _result = create();
@@ -105,15 +105,15 @@ class LastFmSequentialChangeEvent extends $pb.GeneratedMessage {
   static LastFmSequentialChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.bool get sequential => $_getBF(1);
@@ -127,14 +127,14 @@ class LastFmSequentialChangeEvent extends $pb.GeneratedMessage {
 
 class LastFmLimitChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LastFmLimitChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'limit', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   LastFmLimitChangeEvent._() : super();
   factory LastFmLimitChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.int? limit,
   }) {
     final _result = create();
@@ -168,15 +168,15 @@ class LastFmLimitChangeEvent extends $pb.GeneratedMessage {
   static LastFmLimitChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.int get limit => $_getIZ(1);
@@ -190,15 +190,15 @@ class LastFmLimitChangeEvent extends $pb.GeneratedMessage {
 
 class LastFmTypeChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LastFmTypeChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
-    ..e<$2.LastFmCollectionType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'collectionType', $pb.PbFieldType.OE, defaultOrMaker: $2.LastFmCollectionType.TOP_TRACKS, valueOf: $2.LastFmCollectionType.valueOf, enumValues: $2.LastFmCollectionType.values)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
+    ..e<$3.LastFmCollectionType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'collectionType', $pb.PbFieldType.OE, defaultOrMaker: $3.LastFmCollectionType.TOP_TRACKS, valueOf: $3.LastFmCollectionType.valueOf, enumValues: $3.LastFmCollectionType.values)
     ..hasRequiredFields = false
   ;
 
   LastFmTypeChangeEvent._() : super();
   factory LastFmTypeChangeEvent({
-    $0.ModifyEvent? modify,
-    $2.LastFmCollectionType? collectionType,
+    $1.ModifyEvent? modify,
+    $3.LastFmCollectionType? collectionType,
   }) {
     final _result = create();
     if (modify != null) {
@@ -231,20 +231,20 @@ class LastFmTypeChangeEvent extends $pb.GeneratedMessage {
   static LastFmTypeChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $2.LastFmCollectionType get collectionType => $_getN(1);
+  $3.LastFmCollectionType get collectionType => $_getN(1);
   @$pb.TagNumber(2)
-  set collectionType($2.LastFmCollectionType v) { setField(2, v); }
+  set collectionType($3.LastFmCollectionType v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasCollectionType() => $_has(1);
   @$pb.TagNumber(2)

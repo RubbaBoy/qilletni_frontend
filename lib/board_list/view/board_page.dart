@@ -76,7 +76,12 @@ class BoardList extends StatelessWidget {
 
   Widget boardWidget(BuildContext context, Board board) {
     return InkWell(
-      onTap: () => Navigator.push(context, BoardView.route(board: board)),
+      onTap: () => BoardView.route(
+              board: board,
+              componentRepository: context.read<ComponentRepository>(),
+              componentRequestRepository:
+                  context.read<ComponentRequestRepository>())
+          .then((route) => Navigator.push(context, route)),
       child: Card(
         margin: const EdgeInsets.all(8),
         child: Padding(

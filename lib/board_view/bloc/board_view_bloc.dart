@@ -14,20 +14,20 @@ part 'board_view_event.dart';
 part 'board_view_state.dart';
 
 class BoardViewBloc extends Bloc<BoardViewEvent, BoardViewState> {
-  BoardViewBloc({required this.structureRepository, required this.board, required this.boardKey}) : super(const BoardViewState()) {
+  BoardViewBloc({required this.board, required this.boardKey, required ComponentRequestRepository requestRepository}) : super(const BoardViewState()) {
     on<ComponentInspected>(_onComponentInspected);
     on<InspectViewClosed>(_onInspectedViewClosed);
     on<ComponentWidgetAdded>(_onComponentWidgetAdded);
     on<ComponentsUpdated>(_onComponentUpdated);
 
-    structureRepository.requestStructure(board.id).then((components) {
+    // TODO: Function add listener
+    requestRepository.requestStructure(board.id).then((components) {
       print('Found ${components.length} components');
 
       add(ComponentsUpdated(components: components));
     });
   }
 
-  final ComponentRequestRepository structureRepository;
   final Board board;
   final GlobalKey boardKey;
 

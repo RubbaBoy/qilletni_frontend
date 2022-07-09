@@ -8,13 +8,13 @@ option java_package = "is.yarr.qilletni.grpc.gen.events.component.spotify";
 
 service SpotifyService {
   rpc Create(SpotifyCreateEvent) returns (CreateComponentResponse);
-  rpc ChangeSequential(SpotifySequentialChangeEvent) returns (EmptyResponse);
-  rpc ChangeLimit(SpotifyLimitChangeEvent) returns (EmptyResponse);
-  rpc ChangeType(SpotifyTypeChangeEvent) returns (EmptyResponse);
-  rpc ChangeData(SpotifyDataChangeEvent) returns (EmptyResponse);
-  rpc ChangeYearRange(SpotifyYearRangeChangeEvent) returns (EmptyResponse);
-  rpc ChangeYear(SpotifyYearChangeEvent) returns (EmptyResponse);
-  rpc ChangeGenre(SpotifyGenreChangeEvent) returns (EmptyResponse);
+  rpc ChangeSequential(SpotifySequentialChangeEvent) returns (BasicResponse);
+  rpc ChangeLimit(SpotifyLimitChangeEvent) returns (BasicResponse);
+  rpc ChangeType(SpotifyTypeChangeEvent) returns (BasicResponse);
+  rpc ChangeData(SpotifyDataChangeEvent) returns (BasicResponse);
+  rpc ChangeYearRange(SpotifyYearRangeChangeEvent) returns (BasicResponse);
+  rpc ChangeYear(SpotifyYearChangeEvent) returns (BasicResponse);
+  rpc ChangeGenre(SpotifyGenreChangeEvent) returns (BasicResponse);
 }
 
 message SpotifyCreateEvent {

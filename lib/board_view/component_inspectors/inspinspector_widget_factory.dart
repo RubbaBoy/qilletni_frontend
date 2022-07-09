@@ -1,8 +1,13 @@
 import 'package:component_grpc/component_grpc.dart';
+import 'package:component_repository/component_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:qilletni_frontend/board_view/component_inspectors/function_inspector/function_inspector.dart';
 
 class InspectorWidgetFactory {
+  InspectorWidgetFactory({required this.boardComponentManager});
+
+  final BoardComponentManager boardComponentManager;
+
   Widget createInspectorWidget(ComponentResponse component) {
     return ({
       ComponentResponse_Content.song: _renderSongInspector,
@@ -26,7 +31,10 @@ class InspectorWidgetFactory {
   }
 
   Widget _renderFunction(ComponentResponse component) {
-    return FunctionInspectorWidget(component: component);
+    return FunctionInspectorWidget(
+      component: component,
+      boardComponentManager: boardComponentManager,
+    );
   }
 
   Widget _renderDefault(ComponentResponse component) {

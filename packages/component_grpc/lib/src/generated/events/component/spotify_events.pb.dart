@@ -9,20 +9,20 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'component_events.pb.dart' as $0;
-import 'request/rpc_mapping.pb.dart' as $2;
+import 'component_events.pb.dart' as $1;
+import 'request/rpc_mapping.pb.dart' as $3;
 
-import 'request/rpc_mapping.pbenum.dart' as $2;
+import 'request/rpc_mapping.pbenum.dart' as $3;
 
 class SpotifyCreateEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyCreateEvent', createEmptyInstance: create)
-    ..aOM<$0.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $0.CreateEvent.create)
+    ..aOM<$1.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $1.CreateEvent.create)
     ..hasRequiredFields = false
   ;
 
   SpotifyCreateEvent._() : super();
   factory SpotifyCreateEvent({
-    $0.CreateEvent? create_1,
+    $1.CreateEvent? create_1,
   }) {
     final _result = create();
     if (create_1 != null) {
@@ -52,27 +52,27 @@ class SpotifyCreateEvent extends $pb.GeneratedMessage {
   static SpotifyCreateEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.CreateEvent get create_1 => $_getN(0);
+  $1.CreateEvent get create_1 => $_getN(0);
   @$pb.TagNumber(1)
-  set create_1($0.CreateEvent v) { setField(1, v); }
+  set create_1($1.CreateEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCreate_1() => $_has(0);
   @$pb.TagNumber(1)
   void clearCreate_1() => clearField(1);
   @$pb.TagNumber(1)
-  $0.CreateEvent ensureCreate_1() => $_ensure(0);
+  $1.CreateEvent ensureCreate_1() => $_ensure(0);
 }
 
 class SpotifySequentialChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifySequentialChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sequential')
     ..hasRequiredFields = false
   ;
 
   SpotifySequentialChangeEvent._() : super();
   factory SpotifySequentialChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.bool? sequential,
   }) {
     final _result = create();
@@ -106,15 +106,15 @@ class SpotifySequentialChangeEvent extends $pb.GeneratedMessage {
   static SpotifySequentialChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.bool get sequential => $_getBF(1);
@@ -128,14 +128,14 @@ class SpotifySequentialChangeEvent extends $pb.GeneratedMessage {
 
 class SpotifyLimitChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyLimitChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'limit', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   SpotifyLimitChangeEvent._() : super();
   factory SpotifyLimitChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.int? limit,
   }) {
     final _result = create();
@@ -169,15 +169,15 @@ class SpotifyLimitChangeEvent extends $pb.GeneratedMessage {
   static SpotifyLimitChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.int get limit => $_getIZ(1);
@@ -191,15 +191,15 @@ class SpotifyLimitChangeEvent extends $pb.GeneratedMessage {
 
 class SpotifyTypeChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyTypeChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
-    ..e<$2.SpotifyCollectionType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'collectionType', $pb.PbFieldType.OE, defaultOrMaker: $2.SpotifyCollectionType.PLAYLIST, valueOf: $2.SpotifyCollectionType.valueOf, enumValues: $2.SpotifyCollectionType.values)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
+    ..e<$3.SpotifyCollectionType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'collectionType', $pb.PbFieldType.OE, defaultOrMaker: $3.SpotifyCollectionType.PLAYLIST, valueOf: $3.SpotifyCollectionType.valueOf, enumValues: $3.SpotifyCollectionType.values)
     ..hasRequiredFields = false
   ;
 
   SpotifyTypeChangeEvent._() : super();
   factory SpotifyTypeChangeEvent({
-    $0.ModifyEvent? modify,
-    $2.SpotifyCollectionType? collectionType,
+    $1.ModifyEvent? modify,
+    $3.SpotifyCollectionType? collectionType,
   }) {
     final _result = create();
     if (modify != null) {
@@ -232,20 +232,20 @@ class SpotifyTypeChangeEvent extends $pb.GeneratedMessage {
   static SpotifyTypeChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $2.SpotifyCollectionType get collectionType => $_getN(1);
+  $3.SpotifyCollectionType get collectionType => $_getN(1);
   @$pb.TagNumber(2)
-  set collectionType($2.SpotifyCollectionType v) { setField(2, v); }
+  set collectionType($3.SpotifyCollectionType v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasCollectionType() => $_has(1);
   @$pb.TagNumber(2)
@@ -254,14 +254,14 @@ class SpotifyTypeChangeEvent extends $pb.GeneratedMessage {
 
 class SpotifyDataChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyDataChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lookupData')
     ..hasRequiredFields = false
   ;
 
   SpotifyDataChangeEvent._() : super();
   factory SpotifyDataChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.String? lookupData,
   }) {
     final _result = create();
@@ -295,15 +295,15 @@ class SpotifyDataChangeEvent extends $pb.GeneratedMessage {
   static SpotifyDataChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get lookupData => $_getSZ(1);
@@ -317,15 +317,15 @@ class SpotifyDataChangeEvent extends $pb.GeneratedMessage {
 
 class SpotifyYearRangeChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyYearRangeChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
-    ..aOM<$2.YearRange>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'yearRange', subBuilder: $2.YearRange.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
+    ..aOM<$3.YearRange>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'yearRange', subBuilder: $3.YearRange.create)
     ..hasRequiredFields = false
   ;
 
   SpotifyYearRangeChangeEvent._() : super();
   factory SpotifyYearRangeChangeEvent({
-    $0.ModifyEvent? modify,
-    $2.YearRange? yearRange,
+    $1.ModifyEvent? modify,
+    $3.YearRange? yearRange,
   }) {
     final _result = create();
     if (modify != null) {
@@ -358,38 +358,38 @@ class SpotifyYearRangeChangeEvent extends $pb.GeneratedMessage {
   static SpotifyYearRangeChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $2.YearRange get yearRange => $_getN(1);
+  $3.YearRange get yearRange => $_getN(1);
   @$pb.TagNumber(2)
-  set yearRange($2.YearRange v) { setField(2, v); }
+  set yearRange($3.YearRange v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasYearRange() => $_has(1);
   @$pb.TagNumber(2)
   void clearYearRange() => clearField(2);
   @$pb.TagNumber(2)
-  $2.YearRange ensureYearRange() => $_ensure(1);
+  $3.YearRange ensureYearRange() => $_ensure(1);
 }
 
 class SpotifyYearChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyYearChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'yearRange', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   SpotifyYearChangeEvent._() : super();
   factory SpotifyYearChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.int? yearRange,
   }) {
     final _result = create();
@@ -423,15 +423,15 @@ class SpotifyYearChangeEvent extends $pb.GeneratedMessage {
   static SpotifyYearChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.int get yearRange => $_getIZ(1);
@@ -445,14 +445,14 @@ class SpotifyYearChangeEvent extends $pb.GeneratedMessage {
 
 class SpotifyGenreChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpotifyGenreChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'genre')
     ..hasRequiredFields = false
   ;
 
   SpotifyGenreChangeEvent._() : super();
   factory SpotifyGenreChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.String? genre,
   }) {
     final _result = create();
@@ -486,15 +486,15 @@ class SpotifyGenreChangeEvent extends $pb.GeneratedMessage {
   static SpotifyGenreChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get genre => $_getSZ(1);

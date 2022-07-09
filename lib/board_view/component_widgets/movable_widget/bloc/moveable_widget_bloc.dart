@@ -15,16 +15,13 @@ part 'moveable_widget_state.dart';
 class MoveableWidgetBloc
     extends Bloc<MoveableWidgetEvent, MoveableWidgetState> {
   MoveableWidgetBloc(
-      {required this.component,
-      required double centerX,
+      {required double centerX,
       required double centerY})
       : super(const MoveableWidgetState(x: 250, y: 100)) {
     on<DraggedComponent>(_onDraggedWidget);
     on<StartedDraggingComponent>(_onStartedDragging);
     on<EndedDraggingComponent>(_onEndedDragging);
   }
-
-  final ComponentResponse component;
 
   FutureOr<void> _onDraggedWidget(
       DraggedComponent event, Emitter<MoveableWidgetState> emit) {

@@ -10,35 +10,35 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'song_events.pb.dart' as $1;
-import 'component_events.pb.dart' as $0;
+import 'song_events.pb.dart' as $2;
+import 'component_events.pb.dart' as $1;
 export 'song_events.pb.dart';
 
 class SongServiceClient extends $grpc.Client {
   static final _$create =
-      $grpc.ClientMethod<$1.SongCreateEvent, $0.CreateComponentResponse>(
+      $grpc.ClientMethod<$2.SongCreateEvent, $1.CreateComponentResponse>(
           '/SongService/Create',
-          ($1.SongCreateEvent value) => value.writeToBuffer(),
+          ($2.SongCreateEvent value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $0.CreateComponentResponse.fromBuffer(value));
+              $1.CreateComponentResponse.fromBuffer(value));
   static final _$changeSong =
-      $grpc.ClientMethod<$1.SongChangeEvent, $0.EmptyResponse>(
+      $grpc.ClientMethod<$2.SongChangeEvent, $1.BasicResponse>(
           '/SongService/ChangeSong',
-          ($1.SongChangeEvent value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+          ($2.SongChangeEvent value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $1.BasicResponse.fromBuffer(value));
 
   SongServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.CreateComponentResponse> create(
-      $1.SongCreateEvent request,
+  $grpc.ResponseFuture<$1.CreateComponentResponse> create(
+      $2.SongCreateEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$create, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.EmptyResponse> changeSong($1.SongChangeEvent request,
+  $grpc.ResponseFuture<$1.BasicResponse> changeSong($2.SongChangeEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$changeSong, request, options: options);
   }
@@ -49,35 +49,35 @@ abstract class SongServiceBase extends $grpc.Service {
 
   SongServiceBase() {
     $addMethod(
-        $grpc.ServiceMethod<$1.SongCreateEvent, $0.CreateComponentResponse>(
+        $grpc.ServiceMethod<$2.SongCreateEvent, $1.CreateComponentResponse>(
             'Create',
             create_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
-                $1.SongCreateEvent.fromBuffer(value),
-            ($0.CreateComponentResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.SongChangeEvent, $0.EmptyResponse>(
+                $2.SongCreateEvent.fromBuffer(value),
+            ($1.CreateComponentResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.SongChangeEvent, $1.BasicResponse>(
         'ChangeSong',
         changeSong_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.SongChangeEvent.fromBuffer(value),
-        ($0.EmptyResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $2.SongChangeEvent.fromBuffer(value),
+        ($1.BasicResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.CreateComponentResponse> create_Pre(
-      $grpc.ServiceCall call, $async.Future<$1.SongCreateEvent> request) async {
+  $async.Future<$1.CreateComponentResponse> create_Pre(
+      $grpc.ServiceCall call, $async.Future<$2.SongCreateEvent> request) async {
     return create(call, await request);
   }
 
-  $async.Future<$0.EmptyResponse> changeSong_Pre(
-      $grpc.ServiceCall call, $async.Future<$1.SongChangeEvent> request) async {
+  $async.Future<$1.BasicResponse> changeSong_Pre(
+      $grpc.ServiceCall call, $async.Future<$2.SongChangeEvent> request) async {
     return changeSong(call, await request);
   }
 
-  $async.Future<$0.CreateComponentResponse> create(
-      $grpc.ServiceCall call, $1.SongCreateEvent request);
-  $async.Future<$0.EmptyResponse> changeSong(
-      $grpc.ServiceCall call, $1.SongChangeEvent request);
+  $async.Future<$1.CreateComponentResponse> create(
+      $grpc.ServiceCall call, $2.SongCreateEvent request);
+  $async.Future<$1.BasicResponse> changeSong(
+      $grpc.ServiceCall call, $2.SongChangeEvent request);
 }

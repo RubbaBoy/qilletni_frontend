@@ -10,7 +10,7 @@ class SongProcessor extends ComponentProcessor<SongServiceClient> {
   Future<CreateComponentResponse> create(String boardId) =>
       processCreateEvent(boardId, client.create, SongCreateEvent());
 
-  Future<ResponseError?> changeSequential(String componentId, String songId) =>
+  Future<ResponseError?> changeSong(String componentId, String songId) =>
       processModifyEvent(
           componentId, client.changeSong, SongChangeEvent(songId: songId));
 }

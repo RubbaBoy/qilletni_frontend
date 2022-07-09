@@ -8,36 +8,40 @@ import 'package:reorderables/reorderables.dart';
 
 class FunctionWidget extends StatefulWidget {
   const FunctionWidget(
-      {required this.functionComponent,
+      {required this.componentId,
       required this.boardKey,
       required this.width,
+      required this.boardComponentManager,
       this.dragging = false,
       super.key});
 
-  final ComponentResponse functionComponent;
+  final String componentId;
   final bool dragging;
   final double width;
+  final BoardComponentManager boardComponentManager;
   final GlobalKey boardKey;
 
   @override
   State<FunctionWidget> createState() => _FunctionWidgetState(
-      functionComponent: functionComponent,
+      componentId: componentId,
       boardKey: boardKey,
       width: width,
+      boardComponentManager: boardComponentManager,
       dragging: dragging);
 }
 
 class _FunctionWidgetState extends State<FunctionWidget> {
   _FunctionWidgetState(
-      {required ComponentResponse functionComponent,
+      {required this.componentId,
       required this.boardKey,
       required this.width,
+      required this.boardComponentManager,
       this.dragging = false})
-      : _functionComponent = functionComponent,
-        componentFactory = ComponentFactory(boardKey: boardKey);
+      : componentFactory = ComponentFactory(boardKey: boardKey, boardComponentManager: boardComponentManager);
 
   final ComponentFactory componentFactory;
-  final ComponentResponse _functionComponent;
+  final BoardComponentManager boardComponentManager;
+  final String componentId;
   final bool dragging;
   final double width;
   final GlobalKey boardKey;
@@ -61,20 +65,21 @@ class _FunctionWidgetState extends State<FunctionWidget> {
           padding: const EdgeInsets.all(4.0),
           child: BlocProvider(
             create: (context) => FunctionBloc(
-                component: _functionComponent,
+                componentId: componentId,
+                boardComponentManager: boardComponentManager,
                 functionProcessor: context.read<FunctionProcessor>(),
-                componentRequestRepository: context.read<ComponentRequestRepository>()),
+            ),
             child: BlocBuilder<FunctionBloc, FunctionState>(
               builder: (context, state) {
                 return ReorderableColumn(
                   scrollController: _scrollController,
                   buildDraggableFeedback: (context, constraints, child) =>
                       buildDraggableFeedback(context, constraints, child),
-                  key: Key('${_functionComponent.base.componentId}_column'),
+                  key: Key('${componentId}_column'),
                   needsLongPressDraggable: false,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    for (var child in state.children)
+                    for (var child in state.component.children)
                       Padding(
                         key: Key('${child.base.componentId}_pad'),
                         padding: const EdgeInsets.all(4),

@@ -7,11 +7,9 @@ part of 'function_inspector_bloc.dart';
 // **************************************************************************
 
 abstract class _$FunctionInspectorStateCWProxy {
-  FunctionInspectorState children(List<ComponentResponse> children);
+  FunctionInspectorState componentResponse(ComponentResponse componentResponse);
 
   FunctionInspectorState editingName(bool editingName);
-
-  FunctionInspectorState name(String name);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `FunctionInspectorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -20,9 +18,8 @@ abstract class _$FunctionInspectorStateCWProxy {
   /// FunctionInspectorState(...).copyWith(id: 12, name: "My name")
   /// ````
   FunctionInspectorState call({
-    List<ComponentResponse>? children,
+    ComponentResponse? componentResponse,
     bool? editingName,
-    String? name,
   });
 }
 
@@ -34,15 +31,13 @@ class _$FunctionInspectorStateCWProxyImpl
   const _$FunctionInspectorStateCWProxyImpl(this._value);
 
   @override
-  FunctionInspectorState children(List<ComponentResponse> children) =>
-      this(children: children);
+  FunctionInspectorState componentResponse(
+          ComponentResponse componentResponse) =>
+      this(componentResponse: componentResponse);
 
   @override
   FunctionInspectorState editingName(bool editingName) =>
       this(editingName: editingName);
-
-  @override
-  FunctionInspectorState name(String name) => this(name: name);
 
   @override
 
@@ -53,24 +48,20 @@ class _$FunctionInspectorStateCWProxyImpl
   /// FunctionInspectorState(...).copyWith(id: 12, name: "My name")
   /// ````
   FunctionInspectorState call({
-    Object? children = const $CopyWithPlaceholder(),
+    Object? componentResponse = const $CopyWithPlaceholder(),
     Object? editingName = const $CopyWithPlaceholder(),
-    Object? name = const $CopyWithPlaceholder(),
   }) {
     return FunctionInspectorState(
-      children: children == const $CopyWithPlaceholder() || children == null
-          ? _value.children
+      componentResponse: componentResponse == const $CopyWithPlaceholder() ||
+              componentResponse == null
+          ? _value.componentResponse
           // ignore: cast_nullable_to_non_nullable
-          : children as List<ComponentResponse>,
+          : componentResponse as ComponentResponse,
       editingName:
           editingName == const $CopyWithPlaceholder() || editingName == null
               ? _value.editingName
               // ignore: cast_nullable_to_non_nullable
               : editingName as bool,
-      name: name == const $CopyWithPlaceholder() || name == null
-          ? _value.name
-          // ignore: cast_nullable_to_non_nullable
-          : name as String,
     );
   }
 }

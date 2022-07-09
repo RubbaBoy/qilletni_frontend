@@ -12,6 +12,9 @@ class ChildrenReordered extends FunctionEvent {
   final int newIndex;
 }
 
-class ChildrenChangedExternally extends FunctionEvent {
-  const ChildrenChangedExternally();
+class ComponentUpdated extends FunctionEvent with ComponentUpdatedEventMixin {
+  const ComponentUpdated(this.componentResponse);
+
+  @override
+  final ComponentResponse componentResponse;
 }

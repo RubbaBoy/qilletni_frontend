@@ -7,8 +7,8 @@ option java_package = "is.yarr.qilletni.grpc.gen.events.component.function";
 
 service FunctionService {
   rpc Create(FunctionCreateEvent) returns (CreateComponentResponse);
-  rpc ChangeChildren(FunctionChangeChildrenEvent) returns (EmptyResponse);
-  rpc ChangeName(FunctionNameChangeEvent) returns (EmptyResponse);
+  rpc ChangeChildren(FunctionChangeChildrenEvent) returns (BasicResponse);
+  rpc ChangeName(FunctionNameChangeEvent) returns (BasicResponse);
 }
 
 message FunctionCreateEvent {

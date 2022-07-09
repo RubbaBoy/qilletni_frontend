@@ -10,32 +10,32 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'general_events.pb.dart' as $1;
-import 'component_events.pb.dart' as $0;
+import 'general_events.pb.dart' as $2;
+import 'component_events.pb.dart' as $1;
 export 'general_events.pb.dart';
 
 class GeneralServiceClient extends $grpc.Client {
-  static final _$delete = $grpc.ClientMethod<$1.DeleteEvent, $0.EmptyResponse>(
+  static final _$delete = $grpc.ClientMethod<$2.DeleteEvent, $1.BasicResponse>(
       '/GeneralService/Delete',
-      ($1.DeleteEvent value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+      ($2.DeleteEvent value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.BasicResponse.fromBuffer(value));
   static final _$recolor =
-      $grpc.ClientMethod<$1.RecolorEvent, $0.EmptyResponse>(
+      $grpc.ClientMethod<$2.RecolorEvent, $1.BasicResponse>(
           '/GeneralService/Recolor',
-          ($1.RecolorEvent value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+          ($2.RecolorEvent value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $1.BasicResponse.fromBuffer(value));
 
   GeneralServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.EmptyResponse> delete($1.DeleteEvent request,
+  $grpc.ResponseFuture<$1.BasicResponse> delete($2.DeleteEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$delete, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.EmptyResponse> recolor($1.RecolorEvent request,
+  $grpc.ResponseFuture<$1.BasicResponse> recolor($2.RecolorEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$recolor, request, options: options);
   }
@@ -45,34 +45,34 @@ abstract class GeneralServiceBase extends $grpc.Service {
   $core.String get $name => 'GeneralService';
 
   GeneralServiceBase() {
-    $addMethod($grpc.ServiceMethod<$1.DeleteEvent, $0.EmptyResponse>(
+    $addMethod($grpc.ServiceMethod<$2.DeleteEvent, $1.BasicResponse>(
         'Delete',
         delete_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.DeleteEvent.fromBuffer(value),
-        ($0.EmptyResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.RecolorEvent, $0.EmptyResponse>(
+        ($core.List<$core.int> value) => $2.DeleteEvent.fromBuffer(value),
+        ($1.BasicResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.RecolorEvent, $1.BasicResponse>(
         'Recolor',
         recolor_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.RecolorEvent.fromBuffer(value),
-        ($0.EmptyResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $2.RecolorEvent.fromBuffer(value),
+        ($1.BasicResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.EmptyResponse> delete_Pre(
-      $grpc.ServiceCall call, $async.Future<$1.DeleteEvent> request) async {
+  $async.Future<$1.BasicResponse> delete_Pre(
+      $grpc.ServiceCall call, $async.Future<$2.DeleteEvent> request) async {
     return delete(call, await request);
   }
 
-  $async.Future<$0.EmptyResponse> recolor_Pre(
-      $grpc.ServiceCall call, $async.Future<$1.RecolorEvent> request) async {
+  $async.Future<$1.BasicResponse> recolor_Pre(
+      $grpc.ServiceCall call, $async.Future<$2.RecolorEvent> request) async {
     return recolor(call, await request);
   }
 
-  $async.Future<$0.EmptyResponse> delete(
-      $grpc.ServiceCall call, $1.DeleteEvent request);
-  $async.Future<$0.EmptyResponse> recolor(
-      $grpc.ServiceCall call, $1.RecolorEvent request);
+  $async.Future<$1.BasicResponse> delete(
+      $grpc.ServiceCall call, $2.DeleteEvent request);
+  $async.Future<$1.BasicResponse> recolor(
+      $grpc.ServiceCall call, $2.RecolorEvent request);
 }

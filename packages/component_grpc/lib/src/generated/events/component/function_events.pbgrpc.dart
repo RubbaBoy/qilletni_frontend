@@ -10,47 +10,47 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'function_events.pb.dart' as $1;
-import 'component_events.pb.dart' as $0;
+import 'function_events.pb.dart' as $2;
+import 'component_events.pb.dart' as $1;
 export 'function_events.pb.dart';
 
 class FunctionServiceClient extends $grpc.Client {
   static final _$create =
-      $grpc.ClientMethod<$1.FunctionCreateEvent, $0.CreateComponentResponse>(
+      $grpc.ClientMethod<$2.FunctionCreateEvent, $1.CreateComponentResponse>(
           '/FunctionService/Create',
-          ($1.FunctionCreateEvent value) => value.writeToBuffer(),
+          ($2.FunctionCreateEvent value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $0.CreateComponentResponse.fromBuffer(value));
+              $1.CreateComponentResponse.fromBuffer(value));
   static final _$changeChildren =
-      $grpc.ClientMethod<$1.FunctionChangeChildrenEvent, $0.EmptyResponse>(
+      $grpc.ClientMethod<$2.FunctionChangeChildrenEvent, $1.BasicResponse>(
           '/FunctionService/ChangeChildren',
-          ($1.FunctionChangeChildrenEvent value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+          ($2.FunctionChangeChildrenEvent value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $1.BasicResponse.fromBuffer(value));
   static final _$changeName =
-      $grpc.ClientMethod<$1.FunctionNameChangeEvent, $0.EmptyResponse>(
+      $grpc.ClientMethod<$2.FunctionNameChangeEvent, $1.BasicResponse>(
           '/FunctionService/ChangeName',
-          ($1.FunctionNameChangeEvent value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+          ($2.FunctionNameChangeEvent value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $1.BasicResponse.fromBuffer(value));
 
   FunctionServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.CreateComponentResponse> create(
-      $1.FunctionCreateEvent request,
+  $grpc.ResponseFuture<$1.CreateComponentResponse> create(
+      $2.FunctionCreateEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$create, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.EmptyResponse> changeChildren(
-      $1.FunctionChangeChildrenEvent request,
+  $grpc.ResponseFuture<$1.BasicResponse> changeChildren(
+      $2.FunctionChangeChildrenEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$changeChildren, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.EmptyResponse> changeName(
-      $1.FunctionNameChangeEvent request,
+  $grpc.ResponseFuture<$1.BasicResponse> changeName(
+      $2.FunctionNameChangeEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$changeName, request, options: options);
   }
@@ -61,53 +61,53 @@ abstract class FunctionServiceBase extends $grpc.Service {
 
   FunctionServiceBase() {
     $addMethod(
-        $grpc.ServiceMethod<$1.FunctionCreateEvent, $0.CreateComponentResponse>(
+        $grpc.ServiceMethod<$2.FunctionCreateEvent, $1.CreateComponentResponse>(
             'Create',
             create_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
-                $1.FunctionCreateEvent.fromBuffer(value),
-            ($0.CreateComponentResponse value) => value.writeToBuffer()));
+                $2.FunctionCreateEvent.fromBuffer(value),
+            ($1.CreateComponentResponse value) => value.writeToBuffer()));
     $addMethod(
-        $grpc.ServiceMethod<$1.FunctionChangeChildrenEvent, $0.EmptyResponse>(
+        $grpc.ServiceMethod<$2.FunctionChangeChildrenEvent, $1.BasicResponse>(
             'ChangeChildren',
             changeChildren_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
-                $1.FunctionChangeChildrenEvent.fromBuffer(value),
-            ($0.EmptyResponse value) => value.writeToBuffer()));
+                $2.FunctionChangeChildrenEvent.fromBuffer(value),
+            ($1.BasicResponse value) => value.writeToBuffer()));
     $addMethod(
-        $grpc.ServiceMethod<$1.FunctionNameChangeEvent, $0.EmptyResponse>(
+        $grpc.ServiceMethod<$2.FunctionNameChangeEvent, $1.BasicResponse>(
             'ChangeName',
             changeName_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
-                $1.FunctionNameChangeEvent.fromBuffer(value),
-            ($0.EmptyResponse value) => value.writeToBuffer()));
+                $2.FunctionNameChangeEvent.fromBuffer(value),
+            ($1.BasicResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.CreateComponentResponse> create_Pre($grpc.ServiceCall call,
-      $async.Future<$1.FunctionCreateEvent> request) async {
+  $async.Future<$1.CreateComponentResponse> create_Pre($grpc.ServiceCall call,
+      $async.Future<$2.FunctionCreateEvent> request) async {
     return create(call, await request);
   }
 
-  $async.Future<$0.EmptyResponse> changeChildren_Pre($grpc.ServiceCall call,
-      $async.Future<$1.FunctionChangeChildrenEvent> request) async {
+  $async.Future<$1.BasicResponse> changeChildren_Pre($grpc.ServiceCall call,
+      $async.Future<$2.FunctionChangeChildrenEvent> request) async {
     return changeChildren(call, await request);
   }
 
-  $async.Future<$0.EmptyResponse> changeName_Pre($grpc.ServiceCall call,
-      $async.Future<$1.FunctionNameChangeEvent> request) async {
+  $async.Future<$1.BasicResponse> changeName_Pre($grpc.ServiceCall call,
+      $async.Future<$2.FunctionNameChangeEvent> request) async {
     return changeName(call, await request);
   }
 
-  $async.Future<$0.CreateComponentResponse> create(
-      $grpc.ServiceCall call, $1.FunctionCreateEvent request);
-  $async.Future<$0.EmptyResponse> changeChildren(
-      $grpc.ServiceCall call, $1.FunctionChangeChildrenEvent request);
-  $async.Future<$0.EmptyResponse> changeName(
-      $grpc.ServiceCall call, $1.FunctionNameChangeEvent request);
+  $async.Future<$1.CreateComponentResponse> create(
+      $grpc.ServiceCall call, $2.FunctionCreateEvent request);
+  $async.Future<$1.BasicResponse> changeChildren(
+      $grpc.ServiceCall call, $2.FunctionChangeChildrenEvent request);
+  $async.Future<$1.BasicResponse> changeName(
+      $grpc.ServiceCall call, $2.FunctionNameChangeEvent request);
 }

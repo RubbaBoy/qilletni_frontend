@@ -7,8 +7,8 @@ option java_package = "is.yarr.qilletni.grpc.gen.events.component.rawcollection"
 
 service RawCollectionService {
   rpc Create(RawCollectionCreateEvent) returns (CreateComponentResponse);
-  rpc ChangeSequential(RawCollectionSequentialChangeEvent) returns (EmptyResponse);
-  rpc ChangeSongs(RawCollectionSongsChangeEvent) returns (EmptyResponse);
+  rpc ChangeSequential(RawCollectionSequentialChangeEvent) returns (BasicResponse);
+  rpc ChangeSongs(RawCollectionSongsChangeEvent) returns (BasicResponse);
 }
 
 message RawCollectionCreateEvent {

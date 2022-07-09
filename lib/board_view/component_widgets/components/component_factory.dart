@@ -1,13 +1,16 @@
 import 'package:component_grpc/component_grpc.dart';
+import 'package:component_repository/src/processors/board_component_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:qilletni_frontend/board_view/component_widgets/components/function/function_widget.dart';
 import 'package:qilletni_frontend/board_view/component_widgets/components/inspectable_widget.dart';
 import 'package:qilletni_frontend/board_view/component_widgets/components/song/song_widget.dart';
 
 class ComponentFactory {
-  ComponentFactory({required this.boardKey});
+  ComponentFactory(
+      {required this.boardKey, required this.boardComponentManager});
 
   final GlobalKey boardKey;
+  final BoardComponentManager boardComponentManager;
 
   final Color _color = Colors.blue;
   final Color? _draggingColor = Colors.blue[200];
@@ -29,7 +32,7 @@ class ComponentFactory {
       ComponentResponse_Content.spotifyCollection: _renderDefault,
       ComponentResponse_Content.notSet: (_) => throw 'No component set',
     }[component.whichContent()]
-        ?.call(component, dragging, width);
+        ?.call(component.base.componentId, dragging, width);
   }
 
   Widget? createHandle(
@@ -39,27 +42,32 @@ class ComponentFactory {
     }[component.whichContent()]
         ?.call(component, dragging, width);
 
-    if (handle == null) throw 'Handle implementation not found for component type: ${component.whichContent()}';
+    if (handle == null) {
+      throw 'Handle implementation not found for component type: ${component.whichContent()}';
+    }
 
     return InspectableWidget(component: component, child: handle);
   }
 
-  Widget _renderSong(ComponentResponse component, bool dragging, double width) {
+  Widget _renderSong(String componentId, bool dragging, double width) {
     return SongWidget(
-        key: Key(component.base.componentId),
-        songComponent: component,
-        width: width,
-        dragging: dragging);
+      key: Key(componentId),
+      componentId: componentId,
+      width: width,
+      dragging: dragging,
+      boardComponentManager: boardComponentManager,
+    );
   }
 
-  Widget _renderFunction(
-      ComponentResponse component, bool dragging, double width) {
+  Widget _renderFunction(String componentId, bool dragging, double width) {
     return FunctionWidget(
-        key: Key(component.base.componentId),
-        functionComponent: component,
-        boardKey: boardKey,
-        width: width,
-        dragging: dragging);
+      key: Key(componentId),
+      componentId: componentId,
+      boardKey: boardKey,
+      width: width,
+      dragging: dragging,
+      boardComponentManager: boardComponentManager,
+    );
   }
 
   Widget _renderFunctionHandle(
@@ -77,9 +85,9 @@ class ComponentFactory {
     );
   }
 
-  Widget _renderDefault(ComponentResponse component, bool dragging) {
+  Widget _renderDefault(String componentId, bool dragging) {
     return Container(
-      key: Key(component.base.componentId),
+      key: Key(componentId),
       width: 150,
       height: 150,
       color: dragging ? _draggingColor : _color,

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "is.yarr.qilletni.grpc.gen";
+
+message ResponseError {
+  string message = 1;
+  int32 code = 2;
+}

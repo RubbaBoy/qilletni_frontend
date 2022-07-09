@@ -7,10 +7,10 @@ option java_package = "is.yarr.qilletni.grpc.gen.events.component.forloop";
 
 service ForLoopService {
   rpc Create(ForLoopCreateEvent) returns (CreateComponentResponse);
-  rpc ChangeChildren(ForLoopChildrenChangeEvent) returns (EmptyResponse);
-  rpc ChangeIterations(ForLoopIterationsChangeEvent) returns (EmptyResponse);
-  rpc ChangeDuration(ForLoopDurationChangeEvent) returns (EmptyResponse);
-  rpc ChangeAbsTime(ForLoopAbsTimeChangeEvent) returns (EmptyResponse);
+  rpc ChangeChildren(ForLoopChildrenChangeEvent) returns (BasicResponse);
+  rpc ChangeIterations(ForLoopIterationsChangeEvent) returns (BasicResponse);
+  rpc ChangeDuration(ForLoopDurationChangeEvent) returns (BasicResponse);
+  rpc ChangeAbsTime(ForLoopAbsTimeChangeEvent) returns (BasicResponse);
 }
 
 message ForLoopCreateEvent {

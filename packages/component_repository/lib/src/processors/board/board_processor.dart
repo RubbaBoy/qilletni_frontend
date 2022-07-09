@@ -16,8 +16,8 @@ class BoardProcessor extends Processor<BoardServiceClient> {
       BoardModifyEvent(boardId: boardId);
 
   @override
-  void postProcessEvent(String boardId, GeneratedMessage event) {
-    boardRepository.publishEvent(boardId, event);
+  void postChange(String boardId, ComponentResponse component) {
+    boardRepository.publishChange(boardId, component);
   }
 
   Future<BoardCreateResponse> create(String name) {

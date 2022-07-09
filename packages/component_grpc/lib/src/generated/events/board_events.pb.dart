@@ -9,8 +9,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'component/component_events.pb.dart' as $0;
-import 'component/request/rpc_mapping.pb.dart' as $2;
+import 'error_response.pb.dart' as $3;
+import 'component/request/rpc_mapping.pb.dart' as $4;
 
 class BoardCreateEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoardCreateEvent', createEmptyInstance: create)
@@ -61,14 +61,14 @@ class BoardCreateEvent extends $pb.GeneratedMessage {
 
 class BoardCreateResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoardCreateResponse', createEmptyInstance: create)
-    ..aOM<$0.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $0.ResponseError.create)
+    ..aOM<$3.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $3.ResponseError.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boardId')
     ..hasRequiredFields = false
   ;
 
   BoardCreateResponse._() : super();
   factory BoardCreateResponse({
-    $0.ResponseError? error,
+    $3.ResponseError? error,
     $core.String? boardId,
   }) {
     final _result = create();
@@ -102,15 +102,15 @@ class BoardCreateResponse extends $pb.GeneratedMessage {
   static BoardCreateResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ResponseError get error => $_getN(0);
+  $3.ResponseError get error => $_getN(0);
   @$pb.TagNumber(1)
-  set error($0.ResponseError v) { setField(1, v); }
+  set error($3.ResponseError v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasError() => $_has(0);
   @$pb.TagNumber(1)
   void clearError() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ResponseError ensureError() => $_ensure(0);
+  $3.ResponseError ensureError() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get boardId => $_getSZ(1);
@@ -263,13 +263,13 @@ class BoardsRequestEvent extends $pb.GeneratedMessage {
 
 class BoardsRequestResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoardsRequestResponse', createEmptyInstance: create)
-    ..pc<$2.Board>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boards', $pb.PbFieldType.PM, subBuilder: $2.Board.create)
+    ..pc<$4.Board>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boards', $pb.PbFieldType.PM, subBuilder: $4.Board.create)
     ..hasRequiredFields = false
   ;
 
   BoardsRequestResponse._() : super();
   factory BoardsRequestResponse({
-    $core.Iterable<$2.Board>? boards,
+    $core.Iterable<$4.Board>? boards,
   }) {
     final _result = create();
     if (boards != null) {
@@ -299,6 +299,6 @@ class BoardsRequestResponse extends $pb.GeneratedMessage {
   static BoardsRequestResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$2.Board> get boards => $_getList(0);
+  $core.List<$4.Board> get boards => $_getList(0);
 }
 

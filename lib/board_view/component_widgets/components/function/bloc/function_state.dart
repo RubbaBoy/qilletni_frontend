@@ -1,17 +1,15 @@
 part of 'function_bloc.dart';
 
 @immutable
-@CopyWith()
-class FunctionState extends Equatable {
-  const FunctionState({required this.name, required this.children});
+class FunctionState extends AbstractComponentState<FunctionState> {
+  const FunctionState(super.component);
 
-  FunctionState.fromResponse(ComponentResponse functionComponent)
-      : name = functionComponent.functionComponent.name,
-        children = functionComponent.functionComponent.children;
+  ComponentBase get base => componentResponse.base;
 
-  final String name;
-  final List<ComponentResponse> children;
+  FunctionComponentResponse get component =>
+      componentResponse.functionComponent;
 
   @override
-  List<Object> get props => [name, children];
+  FunctionState copyWithNewComponent(ComponentResponse component) =>
+      FunctionState(component);
 }

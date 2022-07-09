@@ -10,47 +10,47 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'raw_collection_events.pb.dart' as $1;
-import 'component_events.pb.dart' as $0;
+import 'raw_collection_events.pb.dart' as $2;
+import 'component_events.pb.dart' as $1;
 export 'raw_collection_events.pb.dart';
 
 class RawCollectionServiceClient extends $grpc.Client {
-  static final _$create = $grpc.ClientMethod<$1.RawCollectionCreateEvent,
-          $0.CreateComponentResponse>(
+  static final _$create = $grpc.ClientMethod<$2.RawCollectionCreateEvent,
+          $1.CreateComponentResponse>(
       '/RawCollectionService/Create',
-      ($1.RawCollectionCreateEvent value) => value.writeToBuffer(),
+      ($2.RawCollectionCreateEvent value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
-          $0.CreateComponentResponse.fromBuffer(value));
+          $1.CreateComponentResponse.fromBuffer(value));
   static final _$changeSequential = $grpc.ClientMethod<
-          $1.RawCollectionSequentialChangeEvent, $0.EmptyResponse>(
+          $2.RawCollectionSequentialChangeEvent, $1.BasicResponse>(
       '/RawCollectionService/ChangeSequential',
-      ($1.RawCollectionSequentialChangeEvent value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+      ($2.RawCollectionSequentialChangeEvent value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.BasicResponse.fromBuffer(value));
   static final _$changeSongs =
-      $grpc.ClientMethod<$1.RawCollectionSongsChangeEvent, $0.EmptyResponse>(
+      $grpc.ClientMethod<$2.RawCollectionSongsChangeEvent, $1.BasicResponse>(
           '/RawCollectionService/ChangeSongs',
-          ($1.RawCollectionSongsChangeEvent value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.EmptyResponse.fromBuffer(value));
+          ($2.RawCollectionSongsChangeEvent value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $1.BasicResponse.fromBuffer(value));
 
   RawCollectionServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.CreateComponentResponse> create(
-      $1.RawCollectionCreateEvent request,
+  $grpc.ResponseFuture<$1.CreateComponentResponse> create(
+      $2.RawCollectionCreateEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$create, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.EmptyResponse> changeSequential(
-      $1.RawCollectionSequentialChangeEvent request,
+  $grpc.ResponseFuture<$1.BasicResponse> changeSequential(
+      $2.RawCollectionSequentialChangeEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$changeSequential, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.EmptyResponse> changeSongs(
-      $1.RawCollectionSongsChangeEvent request,
+  $grpc.ResponseFuture<$1.BasicResponse> changeSongs(
+      $2.RawCollectionSongsChangeEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$changeSongs, request, options: options);
   }
@@ -60,54 +60,54 @@ abstract class RawCollectionServiceBase extends $grpc.Service {
   $core.String get $name => 'RawCollectionService';
 
   RawCollectionServiceBase() {
-    $addMethod($grpc.ServiceMethod<$1.RawCollectionCreateEvent,
-            $0.CreateComponentResponse>(
+    $addMethod($grpc.ServiceMethod<$2.RawCollectionCreateEvent,
+            $1.CreateComponentResponse>(
         'Create',
         create_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $1.RawCollectionCreateEvent.fromBuffer(value),
-        ($0.CreateComponentResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.RawCollectionSequentialChangeEvent,
-            $0.EmptyResponse>(
+            $2.RawCollectionCreateEvent.fromBuffer(value),
+        ($1.CreateComponentResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.RawCollectionSequentialChangeEvent,
+            $1.BasicResponse>(
         'ChangeSequential',
         changeSequential_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $1.RawCollectionSequentialChangeEvent.fromBuffer(value),
-        ($0.EmptyResponse value) => value.writeToBuffer()));
+            $2.RawCollectionSequentialChangeEvent.fromBuffer(value),
+        ($1.BasicResponse value) => value.writeToBuffer()));
     $addMethod(
-        $grpc.ServiceMethod<$1.RawCollectionSongsChangeEvent, $0.EmptyResponse>(
+        $grpc.ServiceMethod<$2.RawCollectionSongsChangeEvent, $1.BasicResponse>(
             'ChangeSongs',
             changeSongs_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
-                $1.RawCollectionSongsChangeEvent.fromBuffer(value),
-            ($0.EmptyResponse value) => value.writeToBuffer()));
+                $2.RawCollectionSongsChangeEvent.fromBuffer(value),
+            ($1.BasicResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.CreateComponentResponse> create_Pre($grpc.ServiceCall call,
-      $async.Future<$1.RawCollectionCreateEvent> request) async {
+  $async.Future<$1.CreateComponentResponse> create_Pre($grpc.ServiceCall call,
+      $async.Future<$2.RawCollectionCreateEvent> request) async {
     return create(call, await request);
   }
 
-  $async.Future<$0.EmptyResponse> changeSequential_Pre($grpc.ServiceCall call,
-      $async.Future<$1.RawCollectionSequentialChangeEvent> request) async {
+  $async.Future<$1.BasicResponse> changeSequential_Pre($grpc.ServiceCall call,
+      $async.Future<$2.RawCollectionSequentialChangeEvent> request) async {
     return changeSequential(call, await request);
   }
 
-  $async.Future<$0.EmptyResponse> changeSongs_Pre($grpc.ServiceCall call,
-      $async.Future<$1.RawCollectionSongsChangeEvent> request) async {
+  $async.Future<$1.BasicResponse> changeSongs_Pre($grpc.ServiceCall call,
+      $async.Future<$2.RawCollectionSongsChangeEvent> request) async {
     return changeSongs(call, await request);
   }
 
-  $async.Future<$0.CreateComponentResponse> create(
-      $grpc.ServiceCall call, $1.RawCollectionCreateEvent request);
-  $async.Future<$0.EmptyResponse> changeSequential(
-      $grpc.ServiceCall call, $1.RawCollectionSequentialChangeEvent request);
-  $async.Future<$0.EmptyResponse> changeSongs(
-      $grpc.ServiceCall call, $1.RawCollectionSongsChangeEvent request);
+  $async.Future<$1.CreateComponentResponse> create(
+      $grpc.ServiceCall call, $2.RawCollectionCreateEvent request);
+  $async.Future<$1.BasicResponse> changeSequential(
+      $grpc.ServiceCall call, $2.RawCollectionSequentialChangeEvent request);
+  $async.Future<$1.BasicResponse> changeSongs(
+      $grpc.ServiceCall call, $2.RawCollectionSongsChangeEvent request);
 }

@@ -10,36 +10,36 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'component_request_events.pb.dart' as $1;
+import 'component_request_events.pb.dart' as $0;
 export 'component_request_events.pb.dart';
 
 class ComponentRequestServiceClient extends $grpc.Client {
   static final _$requestStructure =
-      $grpc.ClientMethod<$1.StructureRequestEvent, $1.StructureResponse>(
+      $grpc.ClientMethod<$0.StructureRequestEvent, $0.StructureResponse>(
           '/ComponentRequestService/RequestStructure',
-          ($1.StructureRequestEvent value) => value.writeToBuffer(),
+          ($0.StructureRequestEvent value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $1.StructureResponse.fromBuffer(value));
+              $0.StructureResponse.fromBuffer(value));
   static final _$requestFunction =
-      $grpc.ClientMethod<$1.FunctionRequestEvent, $1.FunctionResponse>(
+      $grpc.ClientMethod<$0.FunctionRequestEvent, $0.FunctionResponse>(
           '/ComponentRequestService/RequestFunction',
-          ($1.FunctionRequestEvent value) => value.writeToBuffer(),
+          ($0.FunctionRequestEvent value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $1.FunctionResponse.fromBuffer(value));
+              $0.FunctionResponse.fromBuffer(value));
 
   ComponentRequestServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$1.StructureResponse> requestStructure(
-      $1.StructureRequestEvent request,
+  $grpc.ResponseFuture<$0.StructureResponse> requestStructure(
+      $0.StructureRequestEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$requestStructure, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.FunctionResponse> requestFunction(
-      $1.FunctionRequestEvent request,
+  $grpc.ResponseFuture<$0.FunctionResponse> requestFunction(
+      $0.FunctionRequestEvent request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$requestFunction, request, options: options);
   }
@@ -50,38 +50,38 @@ abstract class ComponentRequestServiceBase extends $grpc.Service {
 
   ComponentRequestServiceBase() {
     $addMethod(
-        $grpc.ServiceMethod<$1.StructureRequestEvent, $1.StructureResponse>(
+        $grpc.ServiceMethod<$0.StructureRequestEvent, $0.StructureResponse>(
             'RequestStructure',
             requestStructure_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
-                $1.StructureRequestEvent.fromBuffer(value),
-            ($1.StructureResponse value) => value.writeToBuffer()));
+                $0.StructureRequestEvent.fromBuffer(value),
+            ($0.StructureResponse value) => value.writeToBuffer()));
     $addMethod(
-        $grpc.ServiceMethod<$1.FunctionRequestEvent, $1.FunctionResponse>(
+        $grpc.ServiceMethod<$0.FunctionRequestEvent, $0.FunctionResponse>(
             'RequestFunction',
             requestFunction_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
-                $1.FunctionRequestEvent.fromBuffer(value),
-            ($1.FunctionResponse value) => value.writeToBuffer()));
+                $0.FunctionRequestEvent.fromBuffer(value),
+            ($0.FunctionResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$1.StructureResponse> requestStructure_Pre(
+  $async.Future<$0.StructureResponse> requestStructure_Pre(
       $grpc.ServiceCall call,
-      $async.Future<$1.StructureRequestEvent> request) async {
+      $async.Future<$0.StructureRequestEvent> request) async {
     return requestStructure(call, await request);
   }
 
-  $async.Future<$1.FunctionResponse> requestFunction_Pre($grpc.ServiceCall call,
-      $async.Future<$1.FunctionRequestEvent> request) async {
+  $async.Future<$0.FunctionResponse> requestFunction_Pre($grpc.ServiceCall call,
+      $async.Future<$0.FunctionRequestEvent> request) async {
     return requestFunction(call, await request);
   }
 
-  $async.Future<$1.StructureResponse> requestStructure(
-      $grpc.ServiceCall call, $1.StructureRequestEvent request);
-  $async.Future<$1.FunctionResponse> requestFunction(
-      $grpc.ServiceCall call, $1.FunctionRequestEvent request);
+  $async.Future<$0.StructureResponse> requestStructure(
+      $grpc.ServiceCall call, $0.StructureRequestEvent request);
+  $async.Future<$0.FunctionResponse> requestFunction(
+      $grpc.ServiceCall call, $0.FunctionRequestEvent request);
 }

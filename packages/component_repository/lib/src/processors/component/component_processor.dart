@@ -4,11 +4,11 @@ import 'package:grpc/grpc.dart';
 import 'package:meta/meta.dart';
 import 'package:protobuf/protobuf.dart';
 
-typedef ResponseFuture<EmptyResponse> ModifyRequestBuilder(ModifyEvent modify);
+typedef ResponseFuture<BasicResponse> ModifyRequestBuilder(ModifyEvent modify);
 typedef ResponseFuture<CreateComponentResponse> CreateRequestBuilder(
     CreateEvent create);
 
-typedef ResponseFuture<EmptyResponse> ModifyRequest<T extends GeneratedMessage>(
+typedef ResponseFuture<BasicResponse> ModifyRequest<T extends GeneratedMessage>(
     T event,
     {CallOptions? options});
 
@@ -27,8 +27,8 @@ abstract class ComponentProcessor<T extends Client> extends Processor<T> {
   CreateEvent _createCreate(String boardId) => CreateEvent(boardId: boardId);
 
   @override
-  void postProcessEvent(String componentId, GeneratedMessage event) {
-    componentRepository.publishEvent(componentId, event);
+  void postChange(String componentId, ComponentResponse component) {
+    componentRepository.publishChange(componentId, component);
   }
 
   /// The [requestBuilder] type should be either a future of [EmptyResponse],

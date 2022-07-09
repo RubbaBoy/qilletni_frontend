@@ -9,17 +9,17 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'component_events.pb.dart' as $0;
+import 'component_events.pb.dart' as $1;
 
 class ForLoopCreateEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ForLoopCreateEvent', createEmptyInstance: create)
-    ..aOM<$0.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $0.CreateEvent.create)
+    ..aOM<$1.CreateEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'create', subBuilder: $1.CreateEvent.create)
     ..hasRequiredFields = false
   ;
 
   ForLoopCreateEvent._() : super();
   factory ForLoopCreateEvent({
-    $0.CreateEvent? create_1,
+    $1.CreateEvent? create_1,
   }) {
     final _result = create();
     if (create_1 != null) {
@@ -49,27 +49,27 @@ class ForLoopCreateEvent extends $pb.GeneratedMessage {
   static ForLoopCreateEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.CreateEvent get create_1 => $_getN(0);
+  $1.CreateEvent get create_1 => $_getN(0);
   @$pb.TagNumber(1)
-  set create_1($0.CreateEvent v) { setField(1, v); }
+  set create_1($1.CreateEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCreate_1() => $_has(0);
   @$pb.TagNumber(1)
   void clearCreate_1() => clearField(1);
   @$pb.TagNumber(1)
-  $0.CreateEvent ensureCreate_1() => $_ensure(0);
+  $1.CreateEvent ensureCreate_1() => $_ensure(0);
 }
 
 class ForLoopChildrenChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ForLoopChildrenChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..pPS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'children')
     ..hasRequiredFields = false
   ;
 
   ForLoopChildrenChangeEvent._() : super();
   factory ForLoopChildrenChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.Iterable<$core.String>? children,
   }) {
     final _result = create();
@@ -103,15 +103,15 @@ class ForLoopChildrenChangeEvent extends $pb.GeneratedMessage {
   static ForLoopChildrenChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.String> get children => $_getList(1);
@@ -119,14 +119,14 @@ class ForLoopChildrenChangeEvent extends $pb.GeneratedMessage {
 
 class ForLoopIterationsChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ForLoopIterationsChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'iterations', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   ForLoopIterationsChangeEvent._() : super();
   factory ForLoopIterationsChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.int? iterations,
   }) {
     final _result = create();
@@ -160,15 +160,15 @@ class ForLoopIterationsChangeEvent extends $pb.GeneratedMessage {
   static ForLoopIterationsChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.int get iterations => $_getIZ(1);
@@ -182,14 +182,14 @@ class ForLoopIterationsChangeEvent extends $pb.GeneratedMessage {
 
 class ForLoopDurationChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ForLoopDurationChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'duration', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   ForLoopDurationChangeEvent._() : super();
   factory ForLoopDurationChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.int? duration,
   }) {
     final _result = create();
@@ -223,15 +223,15 @@ class ForLoopDurationChangeEvent extends $pb.GeneratedMessage {
   static ForLoopDurationChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.int get duration => $_getIZ(1);
@@ -245,14 +245,14 @@ class ForLoopDurationChangeEvent extends $pb.GeneratedMessage {
 
 class ForLoopAbsTimeChangeEvent extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ForLoopAbsTimeChangeEvent', createEmptyInstance: create)
-    ..aOM<$0.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $0.ModifyEvent.create)
+    ..aOM<$1.ModifyEvent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modify', subBuilder: $1.ModifyEvent.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absTime', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   ForLoopAbsTimeChangeEvent._() : super();
   factory ForLoopAbsTimeChangeEvent({
-    $0.ModifyEvent? modify,
+    $1.ModifyEvent? modify,
     $core.int? absTime,
   }) {
     final _result = create();
@@ -286,15 +286,15 @@ class ForLoopAbsTimeChangeEvent extends $pb.GeneratedMessage {
   static ForLoopAbsTimeChangeEvent? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ModifyEvent get modify => $_getN(0);
+  $1.ModifyEvent get modify => $_getN(0);
   @$pb.TagNumber(1)
-  set modify($0.ModifyEvent v) { setField(1, v); }
+  set modify($1.ModifyEvent v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasModify() => $_has(0);
   @$pb.TagNumber(1)
   void clearModify() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ModifyEvent ensureModify() => $_ensure(0);
+  $1.ModifyEvent ensureModify() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.int get absTime => $_getIZ(1);

@@ -6,7 +6,14 @@ abstract class SongEvent {
 }
 
 class SongChanged extends SongEvent {
-  const SongChanged(this.song);
+  const SongChanged(this.songId);
 
-  final Song song;
+  final String songId;
+}
+
+class ComponentUpdated extends SongEvent with ComponentUpdatedEventMixin {
+  const ComponentUpdated(this.componentResponse);
+
+  @override
+  final ComponentResponse componentResponse;
 }

@@ -10,7 +10,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../component_events.pb.dart' as $0;
+import '../../error_response.pb.dart' as $1;
 import 'rpc_mapping.pb.dart' as $2;
 
 import 'rpc_mapping.pbenum.dart' as $2;
@@ -111,14 +111,14 @@ class FunctionRequestEvent extends $pb.GeneratedMessage {
 
 class StructureResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StructureResponse', createEmptyInstance: create)
-    ..aOM<$0.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $0.ResponseError.create)
+    ..aOM<$1.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $1.ResponseError.create)
     ..pc<ComponentResponse>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'components', $pb.PbFieldType.PM, subBuilder: ComponentResponse.create)
     ..hasRequiredFields = false
   ;
 
   StructureResponse._() : super();
   factory StructureResponse({
-    $0.ResponseError? error,
+    $1.ResponseError? error,
     $core.Iterable<ComponentResponse>? components,
   }) {
     final _result = create();
@@ -152,15 +152,15 @@ class StructureResponse extends $pb.GeneratedMessage {
   static StructureResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ResponseError get error => $_getN(0);
+  $1.ResponseError get error => $_getN(0);
   @$pb.TagNumber(1)
-  set error($0.ResponseError v) { setField(1, v); }
+  set error($1.ResponseError v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasError() => $_has(0);
   @$pb.TagNumber(1)
   void clearError() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ResponseError ensureError() => $_ensure(0);
+  $1.ResponseError ensureError() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<ComponentResponse> get components => $_getList(1);
@@ -168,14 +168,14 @@ class StructureResponse extends $pb.GeneratedMessage {
 
 class FunctionResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FunctionResponse', createEmptyInstance: create)
-    ..aOM<$0.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $0.ResponseError.create)
+    ..aOM<$1.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $1.ResponseError.create)
     ..aOM<ComponentResponse>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'component', subBuilder: ComponentResponse.create)
     ..hasRequiredFields = false
   ;
 
   FunctionResponse._() : super();
   factory FunctionResponse({
-    $0.ResponseError? error,
+    $1.ResponseError? error,
     ComponentResponse? component,
   }) {
     final _result = create();
@@ -209,15 +209,15 @@ class FunctionResponse extends $pb.GeneratedMessage {
   static FunctionResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ResponseError get error => $_getN(0);
+  $1.ResponseError get error => $_getN(0);
   @$pb.TagNumber(1)
-  set error($0.ResponseError v) { setField(1, v); }
+  set error($1.ResponseError v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasError() => $_has(0);
   @$pb.TagNumber(1)
   void clearError() => clearField(1);
   @$pb.TagNumber(1)
-  $0.ResponseError ensureError() => $_ensure(0);
+  $1.ResponseError ensureError() => $_ensure(0);
 
   @$pb.TagNumber(2)
   ComponentResponse get component => $_getN(1);

@@ -9,6 +9,9 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../error_response.pb.dart' as $2;
+import 'request/component_request_events.pb.dart' as $0;
+
 class HelloRequest_Inner extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'HelloRequest.Inner', createEmptyInstance: create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'age', $pb.PbFieldType.O3)
@@ -150,126 +153,96 @@ class HelloReply extends $pb.GeneratedMessage {
   void clearMessage() => clearField(1);
 }
 
-class ResponseError extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ResponseError', createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message')
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'code', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  ResponseError._() : super();
-  factory ResponseError({
-    $core.String? message,
-    $core.int? code,
-  }) {
-    final _result = create();
-    if (message != null) {
-      _result.message = message;
-    }
-    if (code != null) {
-      _result.code = code;
-    }
-    return _result;
-  }
-  factory ResponseError.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ResponseError.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  ResponseError clone() => ResponseError()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  ResponseError copyWith(void Function(ResponseError) updates) => super.copyWith((message) => updates(message as ResponseError)) as ResponseError; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static ResponseError create() => ResponseError._();
-  ResponseError createEmptyInstance() => create();
-  static $pb.PbList<ResponseError> createRepeated() => $pb.PbList<ResponseError>();
-  @$core.pragma('dart2js:noInline')
-  static ResponseError getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResponseError>(create);
-  static ResponseError? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get message => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set message($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasMessage() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearMessage() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.int get code => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set code($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasCode() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearCode() => clearField(2);
+enum BasicResponse_Response {
+  error, 
+  component, 
+  notSet
 }
 
-class EmptyResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'EmptyResponse', createEmptyInstance: create)
-    ..aOM<ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: ResponseError.create)
+class BasicResponse extends $pb.GeneratedMessage {
+  static const $core.Map<$core.int, BasicResponse_Response> _BasicResponse_ResponseByTag = {
+    1 : BasicResponse_Response.error,
+    2 : BasicResponse_Response.component,
+    0 : BasicResponse_Response.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BasicResponse', createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<$2.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $2.ResponseError.create)
+    ..aOM<$0.ComponentResponse>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'component', subBuilder: $0.ComponentResponse.create)
     ..hasRequiredFields = false
   ;
 
-  EmptyResponse._() : super();
-  factory EmptyResponse({
-    ResponseError? error,
+  BasicResponse._() : super();
+  factory BasicResponse({
+    $2.ResponseError? error,
+    $0.ComponentResponse? component,
   }) {
     final _result = create();
     if (error != null) {
       _result.error = error;
     }
+    if (component != null) {
+      _result.component = component;
+    }
     return _result;
   }
-  factory EmptyResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory EmptyResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory BasicResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BasicResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  EmptyResponse clone() => EmptyResponse()..mergeFromMessage(this);
+  BasicResponse clone() => BasicResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  EmptyResponse copyWith(void Function(EmptyResponse) updates) => super.copyWith((message) => updates(message as EmptyResponse)) as EmptyResponse; // ignore: deprecated_member_use
+  BasicResponse copyWith(void Function(BasicResponse) updates) => super.copyWith((message) => updates(message as BasicResponse)) as BasicResponse; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static EmptyResponse create() => EmptyResponse._();
-  EmptyResponse createEmptyInstance() => create();
-  static $pb.PbList<EmptyResponse> createRepeated() => $pb.PbList<EmptyResponse>();
+  static BasicResponse create() => BasicResponse._();
+  BasicResponse createEmptyInstance() => create();
+  static $pb.PbList<BasicResponse> createRepeated() => $pb.PbList<BasicResponse>();
   @$core.pragma('dart2js:noInline')
-  static EmptyResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EmptyResponse>(create);
-  static EmptyResponse? _defaultInstance;
+  static BasicResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BasicResponse>(create);
+  static BasicResponse? _defaultInstance;
+
+  BasicResponse_Response whichResponse() => _BasicResponse_ResponseByTag[$_whichOneof(0)]!;
+  void clearResponse() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  ResponseError get error => $_getN(0);
+  $2.ResponseError get error => $_getN(0);
   @$pb.TagNumber(1)
-  set error(ResponseError v) { setField(1, v); }
+  set error($2.ResponseError v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasError() => $_has(0);
   @$pb.TagNumber(1)
   void clearError() => clearField(1);
   @$pb.TagNumber(1)
-  ResponseError ensureError() => $_ensure(0);
+  $2.ResponseError ensureError() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $0.ComponentResponse get component => $_getN(1);
+  @$pb.TagNumber(2)
+  set component($0.ComponentResponse v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasComponent() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearComponent() => clearField(2);
+  @$pb.TagNumber(2)
+  $0.ComponentResponse ensureComponent() => $_ensure(1);
 }
 
 class CreateComponentResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateComponentResponse', createEmptyInstance: create)
-    ..aOM<ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: ResponseError.create)
+    ..aOM<$2.ResponseError>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: $2.ResponseError.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'componentId')
     ..hasRequiredFields = false
   ;
 
   CreateComponentResponse._() : super();
   factory CreateComponentResponse({
-    ResponseError? error,
+    $2.ResponseError? error,
     $core.String? componentId,
   }) {
     final _result = create();
@@ -303,15 +276,15 @@ class CreateComponentResponse extends $pb.GeneratedMessage {
   static CreateComponentResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  ResponseError get error => $_getN(0);
+  $2.ResponseError get error => $_getN(0);
   @$pb.TagNumber(1)
-  set error(ResponseError v) { setField(1, v); }
+  set error($2.ResponseError v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasError() => $_has(0);
   @$pb.TagNumber(1)
   void clearError() => clearField(1);
   @$pb.TagNumber(1)
-  ResponseError ensureError() => $_ensure(0);
+  $2.ResponseError ensureError() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get componentId => $_getSZ(1);
