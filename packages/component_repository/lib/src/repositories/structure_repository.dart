@@ -17,6 +17,10 @@ class ComponentRequestRepository {
         throw response.error;
       }
 
+      for (var component in response.components) {
+        component.freeze();
+      }
+
       return response.components;
     });
   }

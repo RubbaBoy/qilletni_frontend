@@ -19,11 +19,9 @@ class SongBloc
       : _songProcessor = songProcessor,
         super(
             updateEventCreator: ComponentUpdated.new,
-            initialStateCreator: SongState.new) {
+            initialStateCreator: SongState.fromComponent) {
     on<SongChanged>(
         (event, emit) => songProcessor.changeSong(componentId, event.songId));
-
-    print('song compMan = $boardComponentManager');
   }
 
   final SongProcessor _songProcessor;

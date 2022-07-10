@@ -33,6 +33,7 @@ class BoardProcessor extends Processor<BoardServiceClient> {
     });
   }
 
+  // TODO: Check if this works, I don't think it will (have fun deciphering this in the future)
   Future<ResponseError?> changeName(String componentId, String name) =>
       processModifyEvent(
           componentId, client.changeName, BoardNameChangeEvent(name: name));

@@ -33,6 +33,18 @@ abstract class AbstractComponentBloc<
   final BoardComponentManager boardComponentManager;
   late final StreamSubscription<ComponentResponse> _componentStreamSubscription;
 
+  /// If the current [state] is a [TransitioningState], its
+  /// [TransitioningState.originalState] is emitted to the [emit] parameter.
+  void revert(Emitter<State> emit) {
+    if (state is TransitioningState<State>) {
+      final transitionState = state as TransitioningState<State>;
+
+      emit(transitionState.originalState);
+    } else {
+      print('${state.runtimeType} is not a TransitioningState');
+    }
+  }
+
   @override
   Future<void> close() {
     _componentStreamSubscription.cancel();

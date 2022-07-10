@@ -21,8 +21,10 @@ class IdPublisherRepository<T> {
     return createStream.stream;
   }
 
+  /// Publishes a [ComponentResponse] to all listeners listening to its [id].
+  /// This also ensures the [changedObject] is frozen via [GeneratedMessage.freeze]
   void publishChange(String id, ComponentResponse changedObject) {
-    streams[id]?.sink.add(changedObject);
+    streams[id]?.sink.add(changedObject.freeze() as ComponentResponse);
   }
 
   void publishCreate(T createResponse) {
