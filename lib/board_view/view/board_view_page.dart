@@ -4,13 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qilletni_frontend/board_view/board_view.dart';
 import 'package:qilletni_frontend/board_view/component_inspectors/inspinspector_widget_factory.dart';
-import 'package:qilletni_frontend/board_view/component_widgets/movable_widget/moveable_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/components/component_factory.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/moveable/movable_widget/moveable_widget.dart';
 
 class BoardView extends StatelessWidget {
   BoardView({required this.boardComponentManager, super.key})
       : board = boardComponentManager.board,
+        boardKey = GlobalKey(debugLabel: 'board_key'),
         inspectorWidgetFactory = InspectorWidgetFactory(
-            boardComponentManager: boardComponentManager);
+            boardComponentManager: boardComponentManager) {
+    componentFactory = ComponentFactory(
+        boardKey: boardKey, boardComponentManager: boardComponentManager);
+  }
 
   static Future<Route> route(
       {required Board board,
@@ -27,8 +32,9 @@ class BoardView extends StatelessWidget {
 
   final Board board;
   final BoardComponentManager boardComponentManager;
+  late final ComponentFactory componentFactory;
   final InspectorWidgetFactory inspectorWidgetFactory;
-  final GlobalKey boardKey = GlobalKey(debugLabel: 'board_key');
+  final GlobalKey boardKey;
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +56,7 @@ class BoardView extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 for (var component in state.components)
-                  MoveableWidget(
-                      boardKey: boardKey,
-                      component: component,
-                      boardComponentManager: boardComponentManager),
+                  componentFactory.createDisplayWidget(component, 200),
                 if (state.inspectingComponent != null)
                   _createSidebar(context, state.inspectingComponent!),
               ],

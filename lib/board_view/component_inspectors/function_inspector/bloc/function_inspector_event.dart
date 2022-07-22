@@ -7,12 +7,7 @@ abstract class FunctionInspectorEvent {
 
 class NameStartedEdit extends FunctionInspectorEvent {}
 class NameCancelledEdit extends FunctionInspectorEvent {}
-
-class NameSubmitted extends FunctionInspectorEvent {
-  const NameSubmitted(this.name);
-
-  final String name;
-}
+class NameSubmitted extends FunctionInspectorEvent {}
 
 class ChildrenChanged extends FunctionInspectorEvent {
   const ChildrenChanged(this.childrenIds);

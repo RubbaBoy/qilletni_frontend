@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:component_grpc/component_grpc.dart';
 import 'package:component_repository/component_repository.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:qilletni_frontend/board_view/abstract_component/abstract_component.dart';
@@ -32,7 +33,6 @@ class FunctionInspectorBloc extends AbstractComponentBloc<
     on<NameCancelledEdit>(_nameCancelledEdit);
     on<NameSubmitted>(_nameSubmitted);
     on<ChildrenReordered>(_onChildrenReordered);
-    // on<ChildrenChanged>(_onChildrenChanged);
   }
 
   final ComponentRequestRepository _componentRequestRepository;
@@ -45,12 +45,15 @@ class FunctionInspectorBloc extends AbstractComponentBloc<
 
   void _nameCancelledEdit(NameCancelledEdit event,
       Emitter<FunctionInspectorState> emit) {
+    state.nameController.text = state.component.name;
     emit(state.copyWith(editingName: false));
   }
 
   void _nameSubmitted(NameSubmitted event,
       Emitter<FunctionInspectorState> emit) {
-    functionProcessor.changeName(componentId, event.name);
+    print('Submitting name "${state.nameController.text}"');
+    emit(state.copyWith(editingName: false));
+    functionProcessor.changeName(componentId, state.nameController.text);
   }
 
   Future<void> _onChildrenReordered(ChildrenReordered event,

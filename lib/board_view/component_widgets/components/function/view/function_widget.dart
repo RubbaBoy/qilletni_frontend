@@ -1,9 +1,9 @@
-import 'package:component_grpc/component_grpc.dart';
 import 'package:component_repository/component_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qilletni_frontend/board_view/component_widgets/components/component_factory.dart';
 import 'package:qilletni_frontend/board_view/component_widgets/components/function/function_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/components/inspectable_widget.dart';
 import 'package:reorderables/reorderables.dart';
 
 class FunctionWidget extends StatefulWidget {
@@ -37,7 +37,8 @@ class _FunctionWidgetState extends State<FunctionWidget> {
       required this.width,
       required this.boardComponentManager,
       this.dragging = false})
-      : componentFactory = ComponentFactory(boardKey: boardKey, boardComponentManager: boardComponentManager);
+      : componentFactory = ComponentFactory(
+            boardKey: boardKey, boardComponentManager: boardComponentManager);
 
   final ComponentFactory componentFactory;
   final BoardComponentManager boardComponentManager;
@@ -58,20 +59,22 @@ class _FunctionWidgetState extends State<FunctionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      color: dragging ? Colors.purple[200] : Colors.purple[300],
-      child: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: BlocProvider(
-            create: (context) => FunctionBloc(
-                componentId: componentId,
-                boardComponentManager: boardComponentManager,
-                functionProcessor: context.read<FunctionProcessor>(),
-            ),
-            child: BlocBuilder<FunctionBloc, FunctionState>(
-              builder: (context, state) {
-                return ReorderableColumn(
+    return BlocProvider(
+      create: (context) => FunctionBloc(
+        componentId: componentId,
+        boardComponentManager: boardComponentManager,
+        functionProcessor: context.read<FunctionProcessor>(),
+      ),
+      child: BlocBuilder<FunctionBloc, FunctionState>(
+        builder: (context, state) {
+          return InspectableWidget(
+            component: state.componentResponse,
+            child: Container(
+              width: width,
+              color: dragging ? Colors.purple[200] : Colors.purple[300],
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: ReorderableColumn(
                   scrollController: _scrollController,
                   buildDraggableFeedback: (context, constraints, child) =>
                       buildDraggableFeedback(context, constraints, child),
@@ -83,8 +86,8 @@ class _FunctionWidgetState extends State<FunctionWidget> {
                       Padding(
                         key: Key('${child.base.componentId}_pad'),
                         padding: const EdgeInsets.all(4),
-                        child: componentFactory.createInspectableWidget(
-                            child, dragging, width - (_padding * 2)),
+                        child: componentFactory.createDisplayWidget(
+                            child, width - (_padding * 2)),
                       )
                   ],
                   onReorder: (int oldIndex, int newIndex) {
@@ -92,10 +95,12 @@ class _FunctionWidgetState extends State<FunctionWidget> {
                         .read<FunctionBloc>()
                         .add(ChildrenReordered(oldIndex, newIndex));
                   },
-                );
-              },
+                ),
+              ),
             ),
-          )),
+          );
+        },
+      ),
     );
   }
 

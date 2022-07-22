@@ -1,23 +1,18 @@
 import 'package:component_grpc/component_grpc.dart';
-import 'package:component_repository/src/processors/board_component_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qilletni_frontend/board_view/component_widgets/components/component_factory.dart';
-import 'package:qilletni_frontend/board_view/component_widgets/movable_widget/moveable_widget.dart';
+import 'package:qilletni_frontend/board_view/component_widgets/moveable/movable_widget/moveable_widget.dart';
 
 typedef ChildBuilder = Widget Function(BuildContext context,
     ComponentResponse component, MoveableWidgetState componentState);
 
+typedef MoveableBuilder = Widget Function(bool dragging);
+
 class MoveableWidget extends StatelessWidget {
-  MoveableWidget({super.key, required this.boardKey, required this.component, required this.boardComponentManager})
-      : componentFactory =
-            ComponentFactory(boardKey: boardKey, boardComponentManager: boardComponentManager);
+  const MoveableWidget({super.key, required this.child, required this.handle});
 
-  final ComponentFactory componentFactory;
-  final ComponentResponse component;
-  final BoardComponentManager boardComponentManager;
-
-  final GlobalKey boardKey;
+  final MoveableBuilder? child;
+  final MoveableBuilder? handle;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +24,7 @@ class MoveableWidget extends StatelessWidget {
             top: state.y,
             left: state.x,
             child: Column(
-              children: [
+              children: <Widget>[
                 GestureDetector(
                   onPanStart: (e) => context
                       .read<MoveableWidgetBloc>()
@@ -40,9 +35,9 @@ class MoveableWidget extends StatelessWidget {
                   onPanUpdate: (e) => context
                       .read<MoveableWidgetBloc>()
                       .add(DraggedComponent(e.delta.dx, e.delta.dy)),
-                  child: componentFactory.createHandle(component, state.dragging, 200),
+                  child: handle?.call(state.dragging),
                 ),
-                componentFactory.createWidget(component, state.dragging, 200),
+                if(child != null) child!.call(state.dragging),
               ],
             ),
           );

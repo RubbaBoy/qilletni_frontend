@@ -11,6 +11,10 @@ abstract class _$FunctionInspectorStateCWProxy {
 
   FunctionInspectorState editingName(bool editingName);
 
+  FunctionInspectorState nameController(TextEditingController nameController);
+
+  FunctionInspectorState scrollController(ScrollController scrollController);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `FunctionInspectorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -20,6 +24,8 @@ abstract class _$FunctionInspectorStateCWProxy {
   FunctionInspectorState call({
     ComponentResponse? componentResponse,
     bool? editingName,
+    TextEditingController? nameController,
+    ScrollController? scrollController,
   });
 }
 
@@ -40,6 +46,14 @@ class _$FunctionInspectorStateCWProxyImpl
       this(editingName: editingName);
 
   @override
+  FunctionInspectorState nameController(TextEditingController nameController) =>
+      this(nameController: nameController);
+
+  @override
+  FunctionInspectorState scrollController(ScrollController scrollController) =>
+      this(scrollController: scrollController);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `FunctionInspectorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -50,6 +64,8 @@ class _$FunctionInspectorStateCWProxyImpl
   FunctionInspectorState call({
     Object? componentResponse = const $CopyWithPlaceholder(),
     Object? editingName = const $CopyWithPlaceholder(),
+    Object? nameController = const $CopyWithPlaceholder(),
+    Object? scrollController = const $CopyWithPlaceholder(),
   }) {
     return FunctionInspectorState(
       componentResponse: componentResponse == const $CopyWithPlaceholder() ||
@@ -62,6 +78,16 @@ class _$FunctionInspectorStateCWProxyImpl
               ? _value.editingName
               // ignore: cast_nullable_to_non_nullable
               : editingName as bool,
+      nameController: nameController == const $CopyWithPlaceholder() ||
+              nameController == null
+          ? _value.nameController
+          // ignore: cast_nullable_to_non_nullable
+          : nameController as TextEditingController,
+      scrollController: scrollController == const $CopyWithPlaceholder() ||
+              scrollController == null
+          ? _value.scrollController
+          // ignore: cast_nullable_to_non_nullable
+          : scrollController as ScrollController,
     );
   }
 }
